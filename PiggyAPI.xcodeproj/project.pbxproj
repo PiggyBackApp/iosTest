@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		5D8165CA4A80A028504FAC14 /* Pods_PiggyAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E0F16ED8F9853B28F72B9A9 /* Pods_PiggyAPI.framework */; };
 		E43175FD1E3851FB00B0CE0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43175FC1E3851FB00B0CE0F /* AppDelegate.swift */; };
-		E43175FF1E3851FB00B0CE0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43175FE1E3851FB00B0CE0F /* ViewController.swift */; };
+		E43175FF1E3851FB00B0CE0F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43175FE1E3851FB00B0CE0F /* MainViewController.swift */; };
 		E43176021E3851FB00B0CE0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43176001E3851FB00B0CE0F /* Main.storyboard */; };
 		E43176041E3851FB00B0CE0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E43176031E3851FB00B0CE0F /* Assets.xcassets */; };
 		E43176071E3851FB00B0CE0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43176051E3851FB00B0CE0F /* LaunchScreen.storyboard */; };
+		E439AC711E47B809009A49FF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439AC701E47B809009A49FF /* LoginViewController.swift */; };
+		E439AC731E47B81F009A49FF /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439AC721E47B81F009A49FF /* SignupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +23,13 @@
 		6E0F16ED8F9853B28F72B9A9 /* Pods_PiggyAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PiggyAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43175F91E3851FB00B0CE0F /* PiggyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiggyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43175FC1E3851FB00B0CE0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E43175FE1E3851FB00B0CE0F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E43175FE1E3851FB00B0CE0F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E43176011E3851FB00B0CE0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E43176031E3851FB00B0CE0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E43176061E3851FB00B0CE0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E43176081E3851FB00B0CE0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E439AC701E47B809009A49FF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E439AC721E47B81F009A49FF /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +83,10 @@
 			isa = PBXGroup;
 			children = (
 				E43175FC1E3851FB00B0CE0F /* AppDelegate.swift */,
-				E43175FE1E3851FB00B0CE0F /* ViewController.swift */,
+				E43175FE1E3851FB00B0CE0F /* MainViewController.swift */,
 				E43176001E3851FB00B0CE0F /* Main.storyboard */,
+				E439AC701E47B809009A49FF /* LoginViewController.swift */,
+				E439AC721E47B81F009A49FF /* SignupViewController.swift */,
 				E43176031E3851FB00B0CE0F /* Assets.xcassets */,
 				E43176051E3851FB00B0CE0F /* LaunchScreen.storyboard */,
 				E43176081E3851FB00B0CE0F /* Info.plist */,
@@ -211,7 +217,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E43175FF1E3851FB00B0CE0F /* ViewController.swift in Sources */,
+				E439AC711E47B809009A49FF /* LoginViewController.swift in Sources */,
+				E43175FF1E3851FB00B0CE0F /* MainViewController.swift in Sources */,
+				E439AC731E47B81F009A49FF /* SignupViewController.swift in Sources */,
 				E43175FD1E3851FB00B0CE0F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +341,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6CB3D995D4E4973ED0DDFEAE /* Pods-PiggyAPI.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PiggyAPI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -346,6 +355,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5D62CB1678AE1FF3FEAF30F0 /* Pods-PiggyAPI.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PiggyAPI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

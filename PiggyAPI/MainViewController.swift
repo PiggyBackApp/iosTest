@@ -9,15 +9,15 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        newPost()
+        newPost()
 //        getPosts()
 //        getPost()
 //        getUsers()
-        newUser()
+        //newUser()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,12 +29,12 @@ class ViewController: UIViewController {
     func newPost(){
         let postsEndPoint = "http://localhost:8000/api/posts/?format=json"
         
-        let newPost = ["title": "AGUSTIN",
+        let newPost = ["title": "TYTYTY",
                        "creator": "http://localhost:8000/api/customUsers/3/",
-                       "description": "AGUSTIN",
+                       "description": "TYTYTY",
                        "postType": "DR",
-                       "origin": "AGUSTIN",
-                       "destination": "AGUSTIN",
+                       "origin": "TYTYTY",
+                       "destination": "TYTYTY",
                        "emptySeats": 1,
                        "passengerCapacity": 2,
                        "status": "A"] as [String : Any]
