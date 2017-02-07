@@ -40,7 +40,8 @@ class SignupViewController: UIViewController {
         
         let newCustomUser = ["user": user,
                              "rating": "0",
-                             "school": emailTextField.text!,                         "car": "none",
+                             "school": emailTextField.text!,
+                             "car": "none",
                              "phoneNumber": "19542979"] as [String : Any]
         
         
@@ -48,10 +49,15 @@ class SignupViewController: UIViewController {
             .responseJSON{
                 response in
                 debugPrint(response)
-        }
+                print(response)
+//                TODO: GET TOKEN BACK AFTER ACCOUNT IS CREATED!
+                        }
     }
     
-    
+    func segueToFeed(){
+        performSegue(withIdentifier: "feedSegue", sender: self)
+
+    }
     
     
     

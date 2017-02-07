@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A7D3FE9C715693111558D853580FE545"
+               BlueprintIdentifier = "8A4B9C0F22676B65871FB7F5A5C8ADEF"
                BuildableName = "Pods_PiggyAPI.framework"
                BlueprintName = "Pods-PiggyAPI"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A7D3FE9C715693111558D853580FE545"
+            BlueprintIdentifier = "8A4B9C0F22676B65871FB7F5A5C8ADEF"
             BuildableName = "Pods_PiggyAPI.framework"
             BlueprintName = "Pods-PiggyAPI"
             ReferencedContainer = "container:Pods.xcodeproj">

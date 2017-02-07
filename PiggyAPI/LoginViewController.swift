@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-
+import KeychainSwift
 
 class LoginViewController: UIViewController {
 
@@ -16,9 +16,16 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    var keychain = KeychainSwift()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+//        keychain.set("hello world", forKey: "my key")
+//        keychain.get("my key")
 
 //        passwordTextField.textContentType
         // Do any additional setup after loading the view.
@@ -42,7 +49,35 @@ class LoginViewController: UIViewController {
         Alamofire.request(loginEndPoint, method: .post, parameters: loginCreds, encoding: JSONEncoding.default, headers: nil)
             .responseJSON{
                 response in
-                debugPrint(response)
+                //to get status code
+                if let status = response.response?.statusCode {
+                    switch(status){
+                    case 201:
+                        print("example success")
+                    case 200:
+                        print("example success 200")
+                    default:
+                        print("error with response status: \(status)")
+                    }
+                }
+                //to get JSON return value
+                if let result = response.result.value {
+                    let tokenDict = result as! [String: String]
+                    
+                    // store token in KeyChain if authenticated
+                    if let tokenStr = tokenDict["token"] {
+                        self.keychain.set(tokenStr, forKey: "djangoToken")
+                        print(tokenStr)
+                        self.performSegue(withIdentifier: "loginToFeed", sender: self)
+                    }
+                    
+                    if let tokenStr = tokenDict["non_field_errors"] {
+                        print(tokenStr)
+                        //alert user!
+                    }
+                    
+                }
+//
         }
         
         
@@ -52,6 +87,7 @@ class LoginViewController: UIViewController {
         performSegue(withIdentifier: "signupSegue", sender: self)
     }
 
+    
     /*
     // MARK: - Navigation
 
