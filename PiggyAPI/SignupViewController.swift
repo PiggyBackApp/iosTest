@@ -17,6 +17,8 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    let keychain = LoginViewController(nibName: nil, bundle: nil).keychain
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,6 +53,38 @@ class SignupViewController: UIViewController {
                 debugPrint(response)
                 print(response)
 //                TODO: GET TOKEN BACK AFTER ACCOUNT IS CREATED!
+                var authSucc = false
+                if let status = response.response?.statusCode {
+                    switch(status){
+                    case 201:
+                        print("example success")
+                        authSucc = true
+                    case 200:
+                        authSucc = true
+                        print("example success 200")
+                    default:
+                        print("error with response status: \(status)")
+                    }
+                }
+                //to get JSON return value
+                if(authSucc){
+                    if let result = response.result.value {
+                        let userDict = result as! [String: AnyObject]
+                        
+                        // store token in KeyChain if authenticated
+                        if let tokenStr = userDict["token_key"] {
+                            self.keychain.set(tokenStr as! String, forKey: "djangoToken")
+                            print(tokenStr)
+                            self.segueToFeed()
+                        }
+                        
+                        if let tokenStr = userDict["non_field_errors"] {
+                            print(tokenStr)
+                            //alert user!
+                        }
+                        
+                    }
+                }
                         }
     }
     
