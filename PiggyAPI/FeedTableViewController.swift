@@ -14,6 +14,7 @@ class FeedTableViewController: UITableViewController {
     var postsJson : [[String:AnyObject]] = [[:]]
     let keychain = LoginViewController(nibName: nil, bundle: nil).keychain
     var keyExists = false
+    var valueToPass:[String:AnyObject]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,6 +130,25 @@ class FeedTableViewController: UITableViewController {
         self.performSegue(withIdentifier: "signoutSegue", sender: self)
     }
     
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You selected cell #\(indexPath.row)!")
+        
+        valueToPass = postsJson[indexPath.row]
+        performSegue(withIdentifier: "detailSegue", sender: self)
+    }
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "detailSegue") {
+            
+            // initialize new view controller and cast it as your view controller
+            let viewController = segue.destination as! DetailPostViewController
+            
+            // your new view controller should have property that will store passed value
+            viewController.detailDict = valueToPass
+        }
+    }
  
 
     /*
