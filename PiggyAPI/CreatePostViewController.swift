@@ -9,33 +9,112 @@
 import UIKit
 import Alamofire
 
-class CreatePostViewController: UIViewController {
+class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
 
+    @IBOutlet weak var titleField: UITextField!
+    @IBOutlet weak var descriptionField: UITextView!
+    @IBOutlet weak var typeField: UITextField!
+    @IBOutlet weak var originField: UITextField!
+    @IBOutlet weak var destinationField: UITextField!
+    @IBOutlet weak var passengersField: UITextField!
+    
+    var passsengerPickOptions = ["1", "2", "3", "4", "5", "6"]
+    var typePickOptions = ["Driver", "Passenger"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let typePickerView = UIPickerView()
+        let passengerPickerView = UIPickerView()
+        
+        typePickerView.tag = 1
+        passengerPickerView.tag = 2
+        
+        typePickerView.delegate = self
+        passengerPickerView.delegate = self
+        
+        passengersField.inputView = passengerPickerView
+        typeField.inputView = typePickerView
+        
+        
+        descriptionField.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
+        descriptionField.layer.borderWidth = 1.0
+        descriptionField.layer.cornerRadius = 5
+        
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    
+//    MARK: UIPICKER DELEGATES:
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView.tag == 1 { //type
+            return typePickOptions.count
+        }
+        else if pickerView.tag == 2{
+            return passsengerPickOptions.count
+        }else{
+            return typePickOptions.count
+        }
+        
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView.tag == 1 { //type
+            return typePickOptions[row]
+        }
+        else if pickerView.tag == 2{
+            return passsengerPickOptions[row]
+        }else{
+            return typePickOptions[row]
+        }
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView.tag == 1 { //type
+            typeField.text = typePickOptions[row]
+        }
+        else if pickerView.tag == 2{
+            passengersField.text = passsengerPickOptions[row]
+        }else{
+            typeField.text = typePickOptions[row]
+        }
+    }
+    
+    
     
     @IBAction func exitCreateView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func createPost(_ sender: Any) {
+        
+//   TODO:     check if all things filled!
+        var type: String
+        if "Driver" == typeField.text {
+            type = "DR"
+        }else{
+            type = "PA"
+        }
+        
+        
         let postsEndPoint = "http://localhost:8000/api/posts/?format=json"
-        let newPost = ["title": "New Titleeee TEST",
+        let newPost = ["title": titleField.text!,
                     "creator": "http://localhost:8000/api/customUsers/13/",
-                    "description": "ios desc asdfasdfs asdfsad fsdaf sadf a",
-                    "postType": "DR",
-                    "origin": "ios",
-                    "destination": "ios",
-                    "emptySeats": 3,
-                    "passengerCapacity": 3,
+                    "description": descriptionField.text!,
+                    "postType": type,
+                    "origin": originField.text!,
+                    "destination": destinationField.text!,
+                    "emptySeats": Int(passengersField.text!)! ,
+                    "passengerCapacity": Int(passengersField.text!)! ,
                     "status": "A"] as [String : Any]
         
         
@@ -60,7 +139,7 @@ class CreatePostViewController: UIViewController {
                 //to get JSON return value
                 if(authSucc){
                     if let result = response.result.value {
-                    
+                    //TODO: validate
                         
                     }
                     self.dismiss(animated: true, completion: nil)
@@ -78,3 +157,4 @@ class CreatePostViewController: UIViewController {
     */
 
 }
+
