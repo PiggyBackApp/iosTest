@@ -69,23 +69,25 @@ class SignupViewController: UIViewController {
                 //to get JSON return value
                 if(authSucc){
                     if let result = response.result.value {
-                        let userDict = result as! [String: AnyObject]
-                        
-                        // store token in KeyChain if authenticated
-                        if let tokenStr = userDict["token_key"] {
-                            self.keychain.set(tokenStr as! String, forKey: "djangoToken")
-                            print(tokenStr)
-                            self.segueToFeed()
-                        }
-                        
-                        if let tokenStr = userDict["non_field_errors"] {
-                            print(tokenStr)
-                            //alert user!
-                        }
+                        self.segueToFeed()
+                        print(result)
+//                        let userDict = result as! [String: AnyObject]
+//                        
+//                        // store token in KeyChain if authenticated
+//                        if let tokenStr = userDict["token_key"] {
+//                            self.keychain.set(tokenStr as! String, forKey: "djangoToken")
+//                            print(tokenStr)
+//                            self.segueToFeed()
+//                        }
+//                        
+//                        if let tokenStr = userDict["non_field_errors"] {
+//                            print(tokenStr)
+//                            //alert user!
+//                        }
                         
                     }
                 }
-                        }
+            }
     }
     
     func segueToFeed(){

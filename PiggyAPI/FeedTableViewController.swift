@@ -42,6 +42,17 @@ class FeedTableViewController: UITableViewController {
             self.signOut(self)
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if keychain.get("djangoToken") == nil {
+            keyExists = false
+        }else{
+            keyExists = true
+            getPosts()
+        }
+        
+    }
     
     func getPosts(){
         let postsEndPoint = "http://localhost:8000/api/posts/?format=json"
