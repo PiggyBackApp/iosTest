@@ -39,6 +39,11 @@ class DetailPostViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func deletePost(_ sender: Any) {
+        
+        // TODO: HANDLE DELETING POSTS
+        
+    }
     
 
 

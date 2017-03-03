@@ -1,29 +1,35 @@
 //
-//  CreatePostViewController.swift
+//  EditPostViewController.swift
 //  PiggyAPI
 //
-//  Created by Agustin Malo on 2/20/17.
+//  Created by Agustin Malo on 3/3/17.
 //  Copyright © 2017 Agustin Malo. All rights reserved.
 //
 
 import UIKit
-import Alamofire
 
-class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+class EditPostViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var descriptionField: UITextView!
     @IBOutlet weak var typeField: UITextField!
-    @IBOutlet weak var originField: UITextField!
+    @IBOutlet weak var originType: UITextField!
     @IBOutlet weak var destinationField: UITextField!
-    @IBOutlet weak var passengersField: UITextField!
+    @IBOutlet weak var passengerField: UITextField!
     
     var passsengerPickOptions = ["1", "2", "3", "4", "5", "6"]
     var typePickOptions = ["Driver", "Passenger"]
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
+        
+        // MARK: DELEGATE PREP:
         
         let typePickerView = UIPickerView()
         let passengerPickerView = UIPickerView()
@@ -34,21 +40,17 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
         typePickerView.delegate = self
         passengerPickerView.delegate = self
         
-        passengersField.inputView = passengerPickerView
+        passengerField.inputView = passengerPickerView
         typeField.inputView = typePickerView
         
         
         descriptionField.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
         descriptionField.layer.borderWidth = 1.0
         descriptionField.layer.cornerRadius = 5
-        
+
         // Do any additional setup after loading the view.
     }
-    
-    
-    
-//    MARK: UIPICKER DELEGATES:
-    
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -83,69 +85,25 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
             typeField.text = typePickOptions[row]
         }
         else if pickerView.tag == 2{
-            passengersField.text = passsengerPickOptions[row]
+            passengerField.text = passsengerPickOptions[row]
         }else{
             typeField.text = typePickOptions[row]
         }
     }
+
     
     
     
-    @IBAction func exitCreateView(_ sender: Any) {
+    @IBAction func dismissEditVC(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-
-    @IBAction func createPost(_ sender: Any) {
-        
-//   TODO:     check if all things filled!
-        var type: String
-        if "Driver" == typeField.text {
-            type = "DR"
-        }else{
-            type = "PA"
-        }
-        
-        
-        let postsEndPoint = "http://localhost:8000/api/posts/?format=json"
-        let newPost = ["title": titleField.text!,
-                    "creator": "http://localhost:8000/api/customUsers/13/",
-                    "description": descriptionField.text!,
-                    "postType": type,
-                    "origin": originField.text!,
-                    "destination": destinationField.text!,
-                    "emptySeats": Int(passengersField.text!)! ,
-                    "passengerCapacity": Int(passengersField.text!)! ,
-                    "status": "A"] as [String : Any]
-        
-        
-        Alamofire.request(postsEndPoint, method: .post, parameters: newPost, encoding: JSONEncoding.default, headers: nil)
-            .responseJSON{
-                response in
-                debugPrint(response)
-                print(response)
-                var authSucc = false
-                if let status = response.response?.statusCode {
-                    switch(status){
-                    case 201:
-                        print("example success")
-                        authSucc = true
-                    case 200:
-                        authSucc = true
-                        print("example success 200")
-                    default:
-                        print("error with response status: \(status)")
-                    }
-                }
-                //to get JSON return value
-                if(authSucc){
-                    if response.result.value != nil {
-                    //TODO: validate
-                        
-                    }
-                    self.dismiss(animated: true, completion: nil)
-                }
-        }
+    
+    @IBAction func submitEdit(_ sender: Any) {
+//        TODO:
+//        to submit the edit, we need to have the post id ready
     }
+    
+
     /*
     // MARK: - Navigation
 
@@ -157,4 +115,3 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
     */
 
 }
-
