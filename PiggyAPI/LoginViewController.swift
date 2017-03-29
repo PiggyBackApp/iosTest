@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginUser(_ sender: Any) {
-        let loginEndPoint = "http://localhost:8000/api-token-auth/?format=json"
+        let loginEndPoint = "http://localhost:8000/authenticate/?format=json"
         let loginCreds = [
                     "username": usernameTextField.text!,
                     "password": passwordTextField.text!]
@@ -62,12 +62,17 @@ class LoginViewController: UIViewController {
                 }
                 //to get JSON return value
                 if let result = response.result.value {
-                    let tokenDict = result as! [String: String]
-                    
+                    print(result)
+                    let tokenDict = result as! [String: AnyObject]
+
                     // store token in KeyChain if authenticated
-                    if let tokenStr = tokenDict["token"] {
+                    if let tokenStr = tokenDict["token"] as! String? {
                         self.keychain.set(tokenStr, forKey: "djangoToken")
                         print(tokenStr)
+                        if let currentUserID = tokenDict["id"] as! Int? {
+                            self.keychain.set("\(currentUserID)", forKey: "userID")
+                            print(currentUserID)
+                        }
                         self.performSegue(withIdentifier: "loginToFeed", sender: self)
                     }
                     
@@ -77,7 +82,7 @@ class LoginViewController: UIViewController {
                     }
                     
                 }
-//
+
         }
         
         

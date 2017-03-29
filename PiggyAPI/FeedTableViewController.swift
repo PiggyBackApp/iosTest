@@ -27,7 +27,6 @@ class FeedTableViewController: UITableViewController {
             getPosts()
         }
         
-        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -100,6 +99,7 @@ class FeedTableViewController: UITableViewController {
         }
     }
     
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
