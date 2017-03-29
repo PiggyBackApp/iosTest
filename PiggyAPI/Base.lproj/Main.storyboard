@@ -614,7 +614,7 @@
                     <connections>
                         <outlet property="descriptionField" destination="QPO-ou-5fl" id="3yB-GP-sX6"/>
                         <outlet property="destinationField" destination="xD7-wH-CMp" id="hTm-5e-JFA"/>
-                        <outlet property="originType" destination="3iw-f8-U3h" id="10E-Vi-rzs"/>
+                        <outlet property="originField" destination="3iw-f8-U3h" id="z8Y-J4-I8d"/>
                         <outlet property="passengerField" destination="LdK-4A-v6U" id="c9y-IZ-yzD"/>
                         <outlet property="titleField" destination="8nD-lA-oYS" id="B62-Yp-c3c"/>
                         <outlet property="typeField" destination="G7x-td-kdT" id="CTM-b7-JRR"/>

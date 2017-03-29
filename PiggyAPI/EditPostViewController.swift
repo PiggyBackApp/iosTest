@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Alamofire
 
 class EditPostViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var descriptionField: UITextView!
     @IBOutlet weak var typeField: UITextField!
-    @IBOutlet weak var originType: UITextField!
+    @IBOutlet weak var originField: UITextField!
     @IBOutlet weak var destinationField: UITextField!
     @IBOutlet weak var passengerField: UITextField!
     
@@ -37,7 +38,7 @@ class EditPostViewController: UIViewController, UIPickerViewDataSource, UIPicker
             typeField.text = "Passanger"
         }
         destinationField.text = detailDict["destination"] as! String?
-        originType.text = detailDict["origin"] as! String?
+        originField.text = detailDict["origin"] as! String?
         passengerField.text = "\(detailDict["passengerCapacity"]!)"
         
         
@@ -114,8 +115,57 @@ class EditPostViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     @IBAction func submitEdit(_ sender: Any) {
+        print(detailDict["id"]!)
 //        TODO:
 //        to submit the edit, we need to have the post id ready
+        
+        
+        var type: String
+        if "Driver" == typeField.text {
+            type = "DR"
+        }else{
+            type = "PA"
+        }
+        
+        let postsEndPoint = "http://localhost:8000/api/posts/\(detailDict["id"]!)/?format=json"
+        let updatedPost = ["title": titleField.text!,
+                       "creator": "http://localhost:8000/api/customUsers/13/",
+                       "description": descriptionField.text!,
+                       "postType": type,
+                       "origin": originField.text!,
+                       "destination": destinationField.text!,
+                       "emptySeats": Int(passengerField.text!)! ,
+                       "passengerCapacity": Int(passengerField.text!)! ,
+                       "status": "A"] as [String : Any]
+        
+        
+        Alamofire.request(postsEndPoint, method: .put, parameters: updatedPost, encoding: JSONEncoding.default, headers: nil)
+            .responseJSON{
+                response in
+                debugPrint(response)
+                print(response)
+                var authSucc = false
+                if let status = response.response?.statusCode {
+                    switch(status){
+                    case 201:
+                        print("example success")
+                        authSucc = true
+                    case 200:
+                        authSucc = true
+                        print("example success 200")
+                    default:
+                        print("error with response status: \(status)")
+                    }
+                }
+                //to get JSON return value
+                if(authSucc){
+                    if response.result.value != nil {
+                        //TODO: validate
+                        
+                    }
+                    self.dismiss(animated: true, completion: nil)
+                }
+        }
     }
     
 
