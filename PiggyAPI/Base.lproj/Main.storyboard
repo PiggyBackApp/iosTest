@@ -151,11 +151,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jmm-yK-M0B" id="uJx-hJ-yFx">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pig-eG-igv">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -171,6 +171,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="i1E-6v-uP9">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="cux-WS-A65">
+                            <rect key="frame" x="109" y="7" width="157" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Passenger"/>
+                                <segment title="Driver"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentValueChange:" destination="FRx-rz-Cws" eventType="valueChanged" id="ceA-vk-LSO"/>
+                            </connections>
+                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" title="+" id="ZUm-TJ-j9g">
                             <connections>
                                 <segue destination="usv-6X-ouw" kind="presentation" identifier="" id="Bqv-uP-G0w"/>
@@ -178,6 +190,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="segmentCtrl" destination="cux-WS-A65" id="IHO-is-q6m"/>
                         <segue destination="sDe-Tw-Q3h" kind="presentation" identifier="signoutSegue" id="bOb-UA-2Yd"/>
                         <segue destination="JSc-1E-b4Y" kind="show" identifier="detailSegue" id="N4y-sF-N2C"/>
                     </connections>
