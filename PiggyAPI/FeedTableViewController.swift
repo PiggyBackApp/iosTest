@@ -10,11 +10,21 @@ import UIKit
 import Alamofire
 
 class FeedTableViewController: UITableViewController {
+    
+    
+    @IBOutlet weak var segmentCtrl: UISegmentedControl!
 
     var postsJson : [[String:AnyObject]] = [[:]]
+    var driversList : [[String:AnyObject]] = [[:]]
+    var passengersList : [[String:AnyObject]] = [[:]]
+    
     let keychain = LoginViewController(nibName: nil, bundle: nil).keychain
     var keyExists = false
     var valueToPass:[String:AnyObject]?
+    
+    @IBAction func segmentValueChange(_ sender: Any) {
+        self.tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +52,7 @@ class FeedTableViewController: UITableViewController {
             self.signOut(self)
         }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -51,7 +62,6 @@ class FeedTableViewController: UITableViewController {
             keyExists = true
             getPosts()
         }
-        
     }
     
     func getPosts(){
@@ -95,7 +105,6 @@ class FeedTableViewController: UITableViewController {
                         
                     }
                 }
-                
         }
     }
     
@@ -114,14 +123,38 @@ class FeedTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return postsJson.count
-    }
+        
+        if let passList = postsJson.filter({ "PA" == $0["postType"] as? String}) as [[String:AnyObject]]? {
+            passengersList = passList
+        }
 
+        if let drivsList = postsJson.filter({ $0["postType"] as? String == "DR"}) as [[String:AnyObject]]? {
+            driversList = drivsList
+        }
+        
+        if segmentCtrl.selectedSegmentIndex == 0 {
+            return passengersList.count
+        }
+        
+        else if segmentCtrl.selectedSegmentIndex == 1 {
+            return driversList.count
+        }
+        
+        return 0
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath)
 
-        cell.textLabel?.text = postsJson[indexPath.row]["title"] as! String?
+        if segmentCtrl.selectedSegmentIndex == 0 {
+            cell.textLabel?.text = passengersList[indexPath.row]["title"] as! String?
+        }
+            
+        else if segmentCtrl.selectedSegmentIndex == 1 {
+            cell.textLabel?.text = driversList[indexPath.row]["title"] as! String?//postsJson[indexPath.row]["title"] as! String?
+        }
+        
+        //cell.textLabel?.text = postsJson[indexPath.row]["title"] as! String?
         return cell
     }
     
@@ -137,7 +170,7 @@ class FeedTableViewController: UITableViewController {
         valueToPass = postsJson[indexPath.row]
         performSegue(withIdentifier: "detailSegue", sender: self)
     }
-
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "detailSegue") {
