@@ -112,6 +112,7 @@ class EditPostViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     @IBAction func dismissEditVC(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func submitEdit(_ sender: Any) {
@@ -159,11 +160,8 @@ class EditPostViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 }
                 //to get JSON return value
                 if(authSucc){
-                    if response.result.value != nil {
-                        //TODO: validate
-                        
-                    }
                     self.dismiss(animated: true, completion: nil)
+                    // TODO: pop to root view controller to get updated version
                 }
         }
     }

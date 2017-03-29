@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class DetailPostViewController: UIViewController {
     
@@ -41,7 +42,33 @@ class DetailPostViewController: UIViewController {
     
     @IBAction func deletePost(_ sender: Any) {
         
-        // TODO: HANDLE DELETING POSTS
+        
+        let postsEndPoint = "http://localhost:8000/api/posts/\(detailDict["id"]!)/?format=json"
+        
+
+        Alamofire.request(postsEndPoint, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+            .responseJSON{
+                response in
+                debugPrint(response)
+                print(response)
+                var authSucc = false
+                if let status = response.response?.statusCode {
+                    switch(status){
+                    case 204:
+                        print("example success")
+                        authSucc = true
+                    case 200:
+                        authSucc = true
+                        print("example success 200")
+                    default:
+                        print("error with response status: \(status)")
+                    }
+                }
+                //to get JSON return value
+                if(authSucc){
+                    _ = self.navigationController?.popViewController(animated: true)
+                }
+        }
         
     }
     
