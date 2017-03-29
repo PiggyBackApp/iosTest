@@ -11,7 +11,6 @@ import Alamofire
 
 class FeedTableViewController: UITableViewController {
     
-    
     @IBOutlet weak var segmentCtrl: UISegmentedControl!
 
     var postsJson : [[String:AnyObject]] = [[:]]
@@ -28,7 +27,7 @@ class FeedTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.rowHeight = 95;
         
         if keychain.get("djangoToken") == nil {
             keyExists = false
@@ -144,17 +143,33 @@ class FeedTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath)
-
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! CustomeTableViewCell
+        
+        
         if segmentCtrl.selectedSegmentIndex == 0 {
-            cell.textLabel?.text = passengersList[indexPath.row]["title"] as! String?
+            cell.origin.text = passengersList[indexPath.row]["origin"] as! String?
+            cell.destination.text = passengersList[indexPath.row]["destination"] as! String?
+            cell.spotAvailable.text = "\(passengersList[indexPath.row]["emptySeats"]!)"
+            cell.carEmoji.text = "🚗"
+
+            
         }
             
         else if segmentCtrl.selectedSegmentIndex == 1 {
-            cell.textLabel?.text = driversList[indexPath.row]["title"] as! String?//postsJson[indexPath.row]["title"] as! String?
+            //cell.textLabel?.text = driversList[indexPath.row]["title"] as! String?        }
+        
+            cell.origin.text = driversList[indexPath.row]["origin"] as! String?
+            cell.destination.text = driversList[indexPath.row]["destination"] as! String?
+            cell.spotAvailable.text = "\(driversList[indexPath.row]["emptySeats"]!)"
+            cell.carEmoji.text = "🚗"
+        //cell.textLabel?.text = postsJson[indexPath.row]["title"] as! String?
+        
         }
         
-        //cell.textLabel?.text = postsJson[indexPath.row]["title"] as! String?
+        
+        
+        
         return cell
     }
     
