@@ -18,6 +18,8 @@ class EditPostViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var destinationField: UITextField!
     @IBOutlet weak var passengerField: UITextField!
     
+    let keychain = LoginViewController(nibName: nil, bundle: nil).keychain
+    
     var passsengerPickOptions = ["1", "2", "3", "4", "5", "6"]
     var typePickOptions = ["Driver", "Passenger"]
     
@@ -130,7 +132,7 @@ class EditPostViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         let postsEndPoint = "http://localhost:8000/api/posts/\(detailDict["id"]!)/?format=json"
         let updatedPost = ["title": titleField.text!,
-                       "creator": "http://localhost:8000/api/customUsers/13/",
+                       "creator": "http://localhost:8000/api/customUsers/\(keychain.get("userID")!)/",
                        "description": descriptionField.text!,
                        "postType": type,
                        "origin": originField.text!,

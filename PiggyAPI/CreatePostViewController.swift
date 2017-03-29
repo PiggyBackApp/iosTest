@@ -18,6 +18,8 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var destinationField: UITextField!
     @IBOutlet weak var passengersField: UITextField!
     
+    let keychain = LoginViewController(nibName: nil, bundle: nil).keychain
+    
     var passsengerPickOptions = ["1", "2", "3", "4", "5", "6"]
     var typePickOptions = ["Driver", "Passenger"]
     
@@ -105,10 +107,9 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
             type = "PA"
         }
         
-        
         let postsEndPoint = "http://localhost:8000/api/posts/?format=json"
         let newPost = ["title": titleField.text!,
-                    "creator": "http://localhost:8000/api/customUsers/13/",
+                    "creator": "http://localhost:8000/api/customUsers/\(keychain.get("userID")!)/",
                     "description": descriptionField.text!,
                     "postType": type,
                     "origin": originField.text!,
