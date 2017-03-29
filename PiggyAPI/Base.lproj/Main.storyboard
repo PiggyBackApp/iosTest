@@ -171,6 +171,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="i1E-6v-uP9">
+                        <nil key="title"/>
                         <barButtonItem key="rightBarButtonItem" title="+" id="ZUm-TJ-j9g">
                             <connections>
                                 <segue destination="usv-6X-ouw" kind="presentation" identifier="" id="Bqv-uP-G0w"/>
@@ -334,17 +335,38 @@
                                     <action selector="signOutButton:" destination="GNc-eo-OD9" eventType="touchUpInside" id="shn-Ef-gcI"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="us0-yr-zLr">
+                                <rect key="frame" x="87" y="72" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahc-7M-utf">
+                                <rect key="frame" x="126" y="303" width="122" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saM-JM-NWW">
+                                <rect key="frame" x="163" y="350" width="49" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="EZJ-1y-mBK"/>
                     <connections>
+                        <outlet property="profileName" destination="ahc-7M-utf" id="vHs-wV-VkL"/>
+                        <outlet property="ranking" destination="saM-JM-NWW" id="FiQ-5e-pIt"/>
                         <segue destination="sDe-Tw-Q3h" kind="presentation" identifier="profileToLogin" id="od6-81-qPy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kDT-Bs-8tO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3506" y="1509"/>
+            <point key="canvasLocation" x="3504.8000000000002" y="1508.9955022488757"/>
         </scene>
         <!--Detail Post View Controller-->
         <scene sceneID="xjM-NO-jYZ">

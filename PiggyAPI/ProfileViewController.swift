@@ -10,11 +10,22 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    
+    @IBOutlet weak var profileName: UILabel!
+    @IBOutlet weak var ranking: UILabel!
+    
     let keychain = LoginViewController(nibName: nil, bundle: nil).keychain
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let firstName = "Agustin"
+        let lastName = "Stein"
+        let rankNum = "3.5"
+        
+        profileName.text = firstName + " " + lastName
+        ranking.text = rankNum
+        
         // Do any additional setup after loading the view.
     }
 
