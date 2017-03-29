@@ -32,6 +32,7 @@ class DetailPostViewController: UIViewController {
         capacity.text = "\(detailDict["passengerCapacity"]!)"
         emptySeats.text = "\(detailDict["emptySeats"]!)"
         textView.text = detailDict["description"] as! String?
+//        userPosted.text = detailDict["creator"] as! String?
         
     }
 
