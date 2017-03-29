@@ -454,7 +454,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="171.5" height="93"/>
                                                 <state key="normal" title="Edit"/>
                                                 <connections>
-                                                    <segue destination="fCc-1e-2EE" kind="presentation" id="uEU-Ry-Zon"/>
+                                                    <segue destination="fCc-1e-2EE" kind="presentation" identifier="editSegue" id="uEU-Ry-Zon"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xux-Wi-hZm">

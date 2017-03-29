@@ -20,10 +20,25 @@ class EditPostViewController: UIViewController, UIPickerViewDataSource, UIPicker
     var passsengerPickOptions = ["1", "2", "3", "4", "5", "6"]
     var typePickOptions = ["Driver", "Passenger"]
     
+    var detailDict : [String:AnyObject]!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Filling in values to edit:
+        
+        titleField.text = detailDict["title"] as! String?
+        descriptionField.text = detailDict["description"] as! String?
+        if detailDict["postType"] as! String? == "DR" {
+            typeField.text = "Driver"
+        }
+        else {
+            typeField.text = "Passanger"
+        }
+        destinationField.text = detailDict["destination"] as! String?
+        originType.text = detailDict["origin"] as! String?
+        passengerField.text = "\(detailDict["passengerCapacity"]!)"
         
         
         
