@@ -166,8 +166,12 @@ class FeedTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected cell #\(indexPath.row)!")
-        
-        valueToPass = postsJson[indexPath.row]
+        if segmentCtrl.selectedSegmentIndex == 0 {
+            valueToPass = passengersList[indexPath.row]
+        }
+        else if segmentCtrl.selectedSegmentIndex == 1 {
+            valueToPass = driversList[indexPath.row]
+        }
         performSegue(withIdentifier: "detailSegue", sender: self)
     }
     
