@@ -116,6 +116,7 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
                     "destination": destinationField.text!,
                     "emptySeats": Int(passengersField.text!)! ,
                     "passengerCapacity": Int(passengersField.text!)! ,
+                    "travelDate": "2017-03-29T08:04:01.994677Z" ,
                     "status": "A"] as [String : Any]
         
         

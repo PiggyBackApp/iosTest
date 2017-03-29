@@ -139,6 +139,7 @@ class EditPostViewController: UIViewController, UIPickerViewDataSource, UIPicker
                        "destination": destinationField.text!,
                        "emptySeats": Int(passengerField.text!)! ,
                        "passengerCapacity": Int(passengerField.text!)! ,
+                       "travelDate": "2017-03-29T08:04:01.994677Z" ,
                        "status": "A"] as [String : Any]
         
         
