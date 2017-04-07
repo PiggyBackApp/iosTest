@@ -14,13 +14,13 @@ class DetailPostViewController: UIViewController {
     var detailDict :[String:AnyObject]!
     
     @IBOutlet weak var postTitle: UILabel!
-    @IBOutlet weak var userPosted: UILabel!
     @IBOutlet weak var destination: UILabel!
     @IBOutlet weak var origin: UILabel!
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var emptySeats: UILabel!
     @IBOutlet weak var capacity: UILabel!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var creatorUsername: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class DetailPostViewController: UIViewController {
         capacity.text = "\(detailDict["passengerCapacity"]!)"
         emptySeats.text = "\(detailDict["emptySeats"]!)"
         textView.text = detailDict["description"] as! String?
-//        userPosted.text = detailDict["creator"] as! String?
+        creatorUsername.text = "\(detailDict["username"]!)"
         
     }
 

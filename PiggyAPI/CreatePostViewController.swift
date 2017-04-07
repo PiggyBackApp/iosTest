@@ -109,7 +109,7 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         let postsEndPoint = "http://localhost:8000/api/posts/?format=json"
         let newPost = ["title": titleField.text!,
-                    "creator": "http://localhost:8000/api/customUsers/\(keychain.get("userID")!)/",
+                    "creator": keychain.get("userID")!,
                     "description": descriptionField.text!,
                     "postType": type,
                     "origin": originField.text!,
