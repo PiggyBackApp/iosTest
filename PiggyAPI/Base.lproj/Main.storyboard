@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GW1-MZ-fWJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GW1-MZ-fWJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -477,13 +477,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTH-MK-SD3">
-                                <rect key="frame" x="173" y="131" width="186" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCb-aZ-wUT">
                                 <rect key="frame" x="155" y="573" width="64" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -580,6 +573,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnT-SQ-aX7">
+                                <rect key="frame" x="176" y="131" width="183" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Username link"/>
+                                <connections>
+                                    <action selector="usernameTapped:" destination="JSc-1E-b4Y" eventType="touchUpInside" id="F0g-bS-LiW"/>
+                                    <segue destination="IFf-33-B18" kind="show" identifier="otherUserProfiles" id="5zU-1l-qZV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -587,13 +589,13 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="capacity" destination="IXg-qf-6by" id="paD-7E-Scn"/>
+                        <outlet property="creatorLink" destination="hnT-SQ-aX7" id="RIx-fl-qn3"/>
                         <outlet property="destination" destination="DRw-Pl-k1m" id="j5l-sm-K7L"/>
                         <outlet property="emptySeats" destination="MFz-9T-rYF" id="ekv-8c-qJh"/>
                         <outlet property="origin" destination="wN1-8J-aj9" id="ZZQ-ug-nc6"/>
                         <outlet property="postTitle" destination="Ogm-vr-Bw6" id="Jcf-5i-TnN"/>
                         <outlet property="status" destination="Euj-an-wiB" id="JcD-6M-lp9"/>
                         <outlet property="textView" destination="TLv-Rn-bh5" id="nb8-iY-RPw"/>
-                        <outlet property="userPosted" destination="wTH-MK-SD3" id="QV9-9W-DX6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FL7-Yb-Gan" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -729,6 +731,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rVk-PI-TAY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6924" y="812.74362818590714"/>
+        </scene>
+        <!--Other User Profile View Controller-->
+        <scene sceneID="TYi-hk-xZf">
+            <objects>
+                <viewController id="IFf-33-B18" customClass="OtherUserProfileViewController" customModule="PiggyAPI" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sR4-j1-aaS"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ijw-ov-PzB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fwv-X6-sLt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Hx-0H-13k">
+                                <rect key="frame" x="87" y="72" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGC-9o-qzJ">
+                                <rect key="frame" x="66" y="303" width="242" height="67"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0C-6M-6q8">
+                                <rect key="frame" x="163" y="349" width="49" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="rating" destination="a0C-6M-6q8" id="jsE-26-JVf"/>
+                        <outlet property="userImage" destination="2Hx-0H-13k" id="cyl-NJ-f7M"/>
+                        <outlet property="username" destination="ZGC-9o-qzJ" id="PRs-6m-q8n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Npn-c3-Hpg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5129" y="1535"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="PFH-4v-27i">
