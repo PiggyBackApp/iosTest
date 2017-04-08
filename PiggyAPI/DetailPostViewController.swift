@@ -20,7 +20,8 @@ class DetailPostViewController: UIViewController {
     @IBOutlet weak var emptySeats: UILabel!
     @IBOutlet weak var capacity: UILabel!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var creatorUsername: UILabel!
+    @IBOutlet weak var creatorLink: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +33,16 @@ class DetailPostViewController: UIViewController {
         capacity.text = "\(detailDict["passengerCapacity"]!)"
         emptySeats.text = "\(detailDict["emptySeats"]!)"
         textView.text = detailDict["description"] as! String?
-        creatorUsername.text = "\(detailDict["username"]!)"
+        creatorLink.setTitle("\(detailDict["username"]!)", for: .normal)
         
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    @IBAction func usernameTapped(_ sender: Any) {
+        
     }
     
     @IBAction func deletePost(_ sender: Any) {
@@ -83,6 +87,13 @@ class DetailPostViewController: UIViewController {
             
             // your new view controller should have property that will store passed value
             viewController.detailDict = detailDict
+        }
+        if (segue.identifier == "otherUserProfiles") {
+            // initialize new view controller and cast it as your view controller
+            let viewController = segue.destination as! OtherUserProfileViewController
+            
+            // your new view controller should have property that will store passed value
+            viewController.userID = detailDict["creator"] as? Int
         }
     }
     
