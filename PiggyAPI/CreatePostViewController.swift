@@ -18,6 +18,8 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var destinationField: UITextField!
     @IBOutlet weak var passengersField: UITextField!
     
+    
+    
     let keychain = LoginViewController(nibName: nil, bundle: nil).keychain
     
     var passsengerPickOptions = ["1", "2", "3", "4", "5", "6"]

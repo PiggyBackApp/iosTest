@@ -66,9 +66,9 @@ class FeedTableViewController: UITableViewController {
     func getPosts(){
         let postsEndPoint = "http://localhost:8000/api/posts/?format=json"
         
-        print("\nKEYCHAIN\n")
-        
-        print(keychain.get("djangoToken")!)
+//        print("\nKEYCHAIN\n")
+//        
+//        print(keychain.get("djangoToken")!)
         let headers = [
             "Authorization": "Token \(keychain.get("djangoToken")!)",
             "Content-Type": "application/json"
@@ -98,7 +98,7 @@ class FeedTableViewController: UITableViewController {
                 if(authSucc){
                     if let result = response.result.value {
                         self.postsJson = result as! [[String: AnyObject]]
-                        print(self.postsJson)
+//                        print(self.postsJson)
                         self.tableView.reloadData()
                         //                    print(JSON)
                         
