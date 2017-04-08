@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5D8165CA4A80A028504FAC14 /* Pods_PiggyAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E0F16ED8F9853B28F72B9A9 /* Pods_PiggyAPI.framework */; };
 		D173F6481E8BD0FF0081B0B4 /* CustomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D173F6471E8BD0FF0081B0B4 /* CustomeTableViewCell.swift */; };
-		D1A612B41E986E9A00D0E6EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A612B31E986E9A00D0E6EC /* ViewController.swift */; };
 		D1FD66CB1E98635700AAA598 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FD66CA1E98635700AAA598 /* SearchResultsController.swift */; };
 		E42864BB1E69F68000125037 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42864BA1E69F68000125037 /* EditPostViewController.swift */; };
 		E42E663A1E491C9B007A4B30 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E66391E491C9B007A4B30 /* FeedTableViewController.swift */; };
@@ -30,7 +29,6 @@
 		6CB3D995D4E4973ED0DDFEAE /* Pods-PiggyAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiggyAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PiggyAPI/Pods-PiggyAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		6E0F16ED8F9853B28F72B9A9 /* Pods_PiggyAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PiggyAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D173F6471E8BD0FF0081B0B4 /* CustomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomeTableViewCell.swift; sourceTree = "<group>"; };
-		D1A612B31E986E9A00D0E6EC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D1FD66CA1E98635700AAA598 /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		E42864BA1E69F68000125037 /* EditPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
 		E42E66391E491C9B007A4B30 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 				D1FD66CA1E98635700AAA598 /* SearchResultsController.swift */,
 				E42864BA1E69F68000125037 /* EditPostViewController.swift */,
 				E43176001E3851FB00B0CE0F /* Main.storyboard */,
-				D1A612B31E986E9A00D0E6EC /* ViewController.swift */,
 				E4B6A2C11E5BD46A00B9E04E /* CreatePostViewController.swift */,
 				E49760CF1E497EEC0023AE3B /* ProfileViewController.swift */,
 				E42E66391E491C9B007A4B30 /* FeedTableViewController.swift */,
@@ -247,7 +244,6 @@
 				E439AC711E47B809009A49FF /* LoginViewController.swift in Sources */,
 				D173F6481E8BD0FF0081B0B4 /* CustomeTableViewCell.swift in Sources */,
 				E43175FF1E3851FB00B0CE0F /* MainViewController.swift in Sources */,
-				D1A612B41E986E9A00D0E6EC /* ViewController.swift in Sources */,
 				E42E663A1E491C9B007A4B30 /* FeedTableViewController.swift in Sources */,
 				E439AC731E47B81F009A49FF /* SignupViewController.swift in Sources */,
 				E42864BB1E69F68000125037 /* EditPostViewController.swift in Sources */,

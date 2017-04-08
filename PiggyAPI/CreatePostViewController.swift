@@ -15,14 +15,18 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var descriptionField: UITextView!
     @IBOutlet weak var typeField: UITextField!
-    @IBOutlet weak var originField: UITextField!
-    @IBOutlet weak var destinationField: UITextField!
+//    @IBOutlet weak var originField: UITextField!
+//    @IBOutlet weak var destinationField: UITextField!
     @IBOutlet weak var passengersField: UITextField!
+    @IBOutlet weak var originLabel: UILabel!
+    @IBOutlet weak var destinationLabel: UILabel!
+    
     
     let keychain = LoginViewController(nibName: nil, bundle: nil).keychain
     
     var passsengerPickOptions = ["1", "2", "3", "4", "5", "6"]
     var typePickOptions = ["Driver", "Passenger"]
+    var originOrDestination = 0
     
     var searchResultController: SearchResultsController!
     var resultsArray = [String]()
@@ -31,14 +35,9 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        // self.googleMapsView = GMSMapView(frame: self.googleMapsContainer.frame)
-        //self.view.addSubview(self.googleMapsView)
-        
         searchResultController = SearchResultsController()
-        //searchResultController.delegate = self
         gmsFetcher = GMSAutocompleteFetcher()
         gmsFetcher.delegate = self
-        
     }
 
     override func viewDidLoad() {
@@ -64,8 +63,6 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
         // Do any additional setup after loading the view.
     }
     
-    
-    
 //    MARK: UIPICKER DELEGATES:
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -81,8 +78,6 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
         }else{
             return typePickOptions.count
         }
-        
-        
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -110,20 +105,22 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     
     @IBAction func searchWithAddressOrigin(_ sender: Any) {
-        let searchController = UISearchController(searchResultsController: searchResultController)
         
-        searchController.searchBar.delegate = self
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        present(autocompleteController, animated: true, completion: nil)
         
-        self.present(searchController, animated:true, completion: nil)
+        originOrDestination = 0
+        
     }
     
     
     @IBAction func searchWithAddressDestination(_ sender: Any) {
-        let searchController = UISearchController(searchResultsController: searchResultController)
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        present(autocompleteController, animated: true, completion: nil)
         
-        searchController.searchBar.delegate = self
-        
-        self.present(searchController, animated:true, completion: nil)
+        originOrDestination = 1
     }
     
     
@@ -147,8 +144,8 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
                     "creator": "http://localhost:8000/api/customUsers/\(keychain.get("userID")!)/",
                     "description": descriptionField.text!,
                     "postType": type,
-                    "origin": originField.text!,
-                    "destination": destinationField.text!,
+                    "origin": originLabel.text!,
+                    "destination": destinationLabel.text!,
                     "emptySeats": Int(passengersField.text!)! ,
                     "passengerCapacity": Int(passengersField.text!)! ,
                     "travelDate": "2017-03-29T08:04:01.994677Z" ,
@@ -183,19 +180,22 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
                 }
         }
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        print("-----------\n\n\n\n--------")
+
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
-    */
+    //}
+    
     
     
     
 //    MARK: SEARCH STUFF:
+    
     
     /**
      Searchbar when text change
@@ -203,6 +203,7 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
      - parameter searchBar:  searchbar UI
      - parameter searchText: searchtext description
      */
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         //        let placeClient = GMSPlacesClient()
@@ -227,7 +228,6 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
         //
         //        }
         
-        
         self.resultsArray.removeAll()
         gmsFetcher?.sourceTextHasChanged(searchText)
         
@@ -246,8 +246,37 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
      * Called when autocomplete predictions are available.
      * @param predictions an array of GMSAutocompletePrediction objects.
      */
+    
+    public func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        
+        print("\n\nPlace name: \(place.name)")
+        print("\nPlace address: \(place.formattedAddress)")
+        
+        var address = place.formattedAddress
+        
+        let parts = address?.components(separatedBy: ",")
+        var parsedCity = parts?[(parts?.count)!-3]
+        
+        if (parsedCity?[0] == " ") {
+
+            parsedCity?.remove(at: (parsedCity?.startIndex)!)
+        }
+        
+        print(parsedCity)
+        
+        if originOrDestination == 0 {
+            originLabel.text = parsedCity
+        }
+        
+        else if originOrDestination == 1 {
+            destinationLabel.text = parsedCity
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     public func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
-        //self.resultsArray.count + 1
         
         for prediction in predictions {
             
@@ -255,11 +284,74 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
                 self.resultsArray.append(prediction.attributedFullText.string)
             }
         }
+        
         self.searchResultController.reloadDataWithArray(self.resultsArray)
-        //   self.searchResultsTable.reloadDataWithArray(self.resultsArray)
         print(resultsArray)
     }
+    
+    
+    
+}
 
+extension String {
+    
+    var length: Int {
+        return self.characters.count
+    }
+    
+    subscript (i: Int) -> String {
+        return self[Range(i ..< i + 1)]
+    }
+    
+    func substring(from: Int) -> String {
+        return self[Range(min(from, length) ..< length)]
+    }
+    
+    func substring(to: Int) -> String {
+        return self[Range(0 ..< max(0, to))]
+    }
+    
+    subscript (r: Range<Int>) -> String {
+        let range = Range(uncheckedBounds: (lower: max(0, min(length, r.lowerBound)),
+                                            upper: min(length, max(0, r.upperBound))))
+        let start = index(startIndex, offsetBy: range.lowerBound)
+        let end = index(start, offsetBy: range.upperBound - range.lowerBound)
+        return self[Range(start ..< end)]
+    }
+    
+}
 
+extension CreatePostViewController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    
+    
+    func CreatePostViewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+//        print("Place name: \(place.name)")
+//        print("Place address: \(place.formattedAddress)")
+//        print("Place attributions: \(place.attributions)")
+        
+        //dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
 }
 

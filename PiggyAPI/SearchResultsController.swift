@@ -15,6 +15,7 @@ protocol LocateOnTheMap{
 class SearchResultsController: UITableViewController {
 
     var searchResults: [String]!
+    var theChosenOne = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +23,10 @@ class SearchResultsController: UITableViewController {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
     
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+         //self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+         //self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,11 +53,12 @@ class SearchResultsController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView,
-                            didSelectRowAt indexPath: IndexPath){
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         // 1
-        print("\n\n\n\(self.searchResults[indexPath.row])\n\n\n")
+        //print("\n\n\n\(self.searchResults[indexPath.row])\n\n\n")
         
+        theChosenOne = self.searchResults[indexPath.row]
+        //returnTheChosen(theChosen: theChosenOne)
         
         
         self.dismiss(animated: true, completion: nil)
@@ -85,6 +87,11 @@ class SearchResultsController: UITableViewController {
         }
         // 5
         task.resume()
+    }
+    
+    
+    func returnTheChosen() -> String {
+        return theChosenOne
     }
     
     func reloadDataWithArray(_ array:[String]){
