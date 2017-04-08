@@ -8,8 +8,9 @@
 
 import UIKit
 import Alamofire
+import GooglePlaces
 
-class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UISearchBarDelegate ,GMSAutocompleteFetcherDelegate{
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var descriptionField: UITextView!
@@ -23,7 +24,23 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
     var passsengerPickOptions = ["1", "2", "3", "4", "5", "6"]
     var typePickOptions = ["Driver", "Passenger"]
     
+    var searchResultController: SearchResultsController!
+    var resultsArray = [String]()
+    var gmsFetcher: GMSAutocompleteFetcher!
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        // self.googleMapsView = GMSMapView(frame: self.googleMapsContainer.frame)
+        //self.view.addSubview(self.googleMapsView)
+        
+        searchResultController = SearchResultsController()
+        //searchResultController.delegate = self
+        gmsFetcher = GMSAutocompleteFetcher()
+        gmsFetcher.delegate = self
+        
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,6 +109,24 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     
+    @IBAction func searchWithAddressOrigin(_ sender: Any) {
+        let searchController = UISearchController(searchResultsController: searchResultController)
+        
+        searchController.searchBar.delegate = self
+        
+        self.present(searchController, animated:true, completion: nil)
+    }
+    
+    
+    @IBAction func searchWithAddressDestination(_ sender: Any) {
+        let searchController = UISearchController(searchResultsController: searchResultController)
+        
+        searchController.searchBar.delegate = self
+        
+        self.present(searchController, animated:true, completion: nil)
+    }
+    
+    
     
     @IBAction func exitCreateView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -157,6 +192,74 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
+//    MARK: SEARCH STUFF:
+    
+    /**
+     Searchbar when text change
+     
+     - parameter searchBar:  searchbar UI
+     - parameter searchText: searchtext description
+     */
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        //        let placeClient = GMSPlacesClient()
+        //
+        //
+        //        placeClient.autocompleteQuery(searchText, bounds: nil, filter: nil)  {(results, error: Error?) -> Void in
+        //           // NSError myerr = Error;
+        //            print("Error @%",Error.self)
+        //
+        //            self.resultsArray.removeAll()
+        //            if results == nil {
+        //                return
+        //            }
+        //
+        //            for result in results! {
+        //                if let result = result as? GMSAutocompletePrediction {
+        //                    self.resultsArray.append(result.attributedFullText.string)
+        //                }
+        //            }
+        //
+        //            self.searchResultController.reloadDataWithArray(self.resultsArray)
+        //
+        //        }
+        
+        
+        self.resultsArray.removeAll()
+        gmsFetcher?.sourceTextHasChanged(searchText)
+        
+        
+    }
+    
+    /**
+     * Called when an autocomplete request returns an error.
+     * @param error the error that was received.
+     */
+    public func didFailAutocompleteWithError(_ error: Error) {
+        //        resultText?.text = error.localizedDescription
+    }
+    
+    /**
+     * Called when autocomplete predictions are available.
+     * @param predictions an array of GMSAutocompletePrediction objects.
+     */
+    public func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
+        //self.resultsArray.count + 1
+        
+        for prediction in predictions {
+            
+            if let prediction = prediction as GMSAutocompletePrediction!{
+                self.resultsArray.append(prediction.attributedFullText.string)
+            }
+        }
+        self.searchResultController.reloadDataWithArray(self.resultsArray)
+        //   self.searchResultsTable.reloadDataWithArray(self.resultsArray)
+        print(resultsArray)
+    }
+
 
 }
 
