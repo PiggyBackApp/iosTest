@@ -101,7 +101,6 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
             typeField.text = typePickOptions[row]
         }
     }
-
     
     @IBAction func chooseDate(_ sender: UIDatePicker) {
         
@@ -132,7 +131,6 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         originOrDestination = 1
     }
-    
     
     
     @IBAction func exitCreateView(_ sender: Any) {
@@ -240,7 +238,6 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         self.resultsArray.removeAll()
         gmsFetcher?.sourceTextHasChanged(searchText)
-        
         
     }
     
