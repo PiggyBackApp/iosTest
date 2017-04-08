@@ -10,13 +10,11 @@ import UIKit
 import Alamofire
 import GooglePlaces
 
-class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UISearchBarDelegate ,GMSAutocompleteFetcherDelegate{
+class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UISearchBarDelegate, GMSAutocompleteFetcherDelegate{
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var descriptionField: UITextView!
     @IBOutlet weak var typeField: UITextField!
-//    @IBOutlet weak var originField: UITextField!
-//    @IBOutlet weak var destinationField: UITextField!
     @IBOutlet weak var passengersField: UITextField!
     @IBOutlet weak var originLabel: UILabel!
     @IBOutlet weak var destinationLabel: UILabel!
@@ -31,6 +29,7 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
     var searchResultController: SearchResultsController!
     var resultsArray = [String]()
     var gmsFetcher: GMSAutocompleteFetcher!
+    var dateAndTime = ""
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -102,6 +101,17 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
             typeField.text = typePickOptions[row]
         }
     }
+
+    
+    @IBAction func chooseDate(_ sender: UIDatePicker) {
+        
+        //"2017-03-29T08:04:01.994677Z"
+        let myFormatter = DateFormatter()
+        myFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.000000'Z'" //"YYYY-MM-DDThh:mm[:ss[.uuuuuu]][+HH:MM|-HH:MM|Z]"
+        dateAndTime = myFormatter.string(from: sender.date)
+        
+        print(dateAndTime)
+    }
     
     
     @IBAction func searchWithAddressOrigin(_ sender: Any) {
@@ -148,7 +158,7 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
                     "destination": destinationLabel.text!,
                     "emptySeats": Int(passengersField.text!)! ,
                     "passengerCapacity": Int(passengersField.text!)! ,
-                    "travelDate": "2017-03-29T08:04:01.994677Z" ,
+                    "travelDate": dateAndTime ,
                     "status": "A"] as [String : Any]
         
         
@@ -289,8 +299,6 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
         print(resultsArray)
     }
     
-    
-    
 }
 
 extension String {
@@ -327,11 +335,7 @@ extension CreatePostViewController: GMSAutocompleteViewControllerDelegate {
     
     
     func CreatePostViewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-//        print("Place name: \(place.name)")
-//        print("Place address: \(place.formattedAddress)")
-//        print("Place attributions: \(place.attributions)")
-        
-        //dismiss(animated: true, completion: nil)
+
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
