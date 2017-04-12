@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GW1-MZ-fWJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sW5-D0-rdX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,6 +8,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Display-Light.otf">
+            <string>SFUIDisplay-Light</string>
+        </array>
+        <array key="SF-UI-Display-Ultralight.otf">
+            <string>SFUIDisplay-Ultralight</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="g43-DT-TgQ">
@@ -21,14 +29,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZu-F9-Aik">
-                                <rect key="frame" x="166" y="297" width="42" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log in"/>
-                                <connections>
-                                    <action selector="loginUser:" destination="pdX-P1-KaJ" eventType="touchUpInside" id="8WW-Ru-f82"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TtF-dY-g1G">
                                 <rect key="frame" x="62" y="221" width="250" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -44,11 +44,19 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgz-3D-vFG">
-                                <rect key="frame" x="77" y="335" width="221" height="30"/>
+                                <rect key="frame" x="77" y="364" width="221" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Don't have an account? Sign up!"/>
                                 <connections>
                                     <action selector="signupSequeAction:" destination="pdX-P1-KaJ" eventType="touchUpInside" id="CT0-y2-nnN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZu-F9-Aik">
+                                <rect key="frame" x="57" y="304" width="261" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log in" image="SIgnIn"/>
+                                <connections>
+                                    <action selector="loginUser:" destination="pdX-P1-KaJ" eventType="touchUpInside" id="8WW-Ru-f82"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -826,7 +834,73 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pcn-gB-xJE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1953" y="15"/>
+            <point key="canvasLocation" x="1266" y="-100"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fmu-NN-vQB">
+            <objects>
+                <viewController id="sW5-D0-rdX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4XX-VX-DIa"/>
+                        <viewControllerLayoutGuide type="bottom" id="K8w-ly-JtF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N1Z-Ld-fcN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="B7M-FE-zFU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PinkOverlay" translatesAutoresizingMaskIntoConstraints="NO" id="EDN-vx-SL8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PiggySymbol" translatesAutoresizingMaskIntoConstraints="NO" id="hvi-TR-35k">
+                                <rect key="frame" x="62" y="63" width="250" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DrC-hn-KJW">
+                                <rect key="frame" x="83" y="497" width="210" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="18"/>
+                                <state key="normal" title="Sign In" backgroundImage="Button"/>
+                                <connections>
+                                    <segue destination="pdX-P1-KaJ" kind="show" id="djU-lJ-43z"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYY-zc-Vas">
+                                <rect key="frame" x="102" y="357" width="171" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Ultralight" family="SF UI Display" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guF-qT-KZ5">
+                                <rect key="frame" x="79" y="557" width="219" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Ultralight" family="SF UI Display" pointSize="17"/>
+                                <state key="normal" title="Don't have an account? Sign Up">
+                                    <color key="titleColor" red="0.62147049492385786" green="0.13632770494712915" blue="0.18359195321931104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Fkv-xT-JPk" kind="show" id="Euw-m3-3M6"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Let's Piggy Back" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVh-DP-pCT">
+                                <rect key="frame" x="108" y="418" width="159" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Ultralight" family="SF UI Display" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mcL-Es-CnJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3566" y="-838"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DSI-ze-Q9i">
@@ -933,8 +1007,17 @@
             <point key="canvasLocation" x="3512.8000000000002" y="1650.224887556222"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="375" height="667"/>
+        <image name="Button" width="212" height="52"/>
+        <image name="PiggySymbol" width="250" height="250"/>
+        <image name="PinkOverlay" width="375" height="667"/>
+        <image name="SIgnIn" width="212" height="52"/>
+    </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="djU-lJ-43z"/>
+        <segue reference="mmc-xq-0tu"/>
+        <segue reference="lbZ-z0-g1N"/>
         <segue reference="bOb-UA-2Yd"/>
-        <segue reference="e0v-s1-iBk"/>
     </inferredMetricsTieBreakers>
 </document>
