@@ -213,6 +213,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="i1E-6v-uP9">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="Etm-uY-x1A">
+                            <connections>
+                                <segue destination="OfA-K8-r3y" kind="presentation" id="U4T-7k-ZSS"/>
+                            </connections>
+                        </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="cux-WS-A65">
                             <rect key="frame" x="103" y="7" width="169" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -238,7 +243,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqx-9s-irM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3506.4000000000001" y="812.74362818590714"/>
+            <point key="canvasLocation" x="3566" y="876"/>
         </scene>
         <!--Create Post View Controller-->
         <scene sceneID="QsL-Jk-7Tu">
@@ -451,7 +456,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kDT-Bs-8tO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3504.8000000000002" y="1508.9955022488757"/>
+            <point key="canvasLocation" x="2567" y="1924"/>
         </scene>
         <!--Detail Post View Controller-->
         <scene sceneID="xjM-NO-jYZ">
@@ -858,11 +863,78 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cU-yh-XiI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4417" y="822"/>
+            <point key="canvasLocation" x="4463" y="1084"/>
+        </scene>
+        <!--Search Filter View Controller-->
+        <scene sceneID="a91-nq-6g6">
+            <objects>
+                <viewController id="OfA-K8-r3y" customClass="SearchFilterViewController" customModule="PiggyAPI" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zKN-3q-6hk"/>
+                        <viewControllerLayoutGuide type="bottom" id="PAD-4F-Gq1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cDw-SH-hhO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Cn-Ic-NVd">
+                                <rect key="frame" x="16" y="28" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelSearchFilter:" destination="OfA-K8-r3y" eventType="touchUpInside" id="HDx-9I-thc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkx-FW-xhk">
+                                <rect key="frame" x="312" y="28" width="35" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Filter"/>
+                                <connections>
+                                    <action selector="filterPosts:" destination="OfA-K8-r3y" eventType="touchUpInside" id="9WX-xJ-H8m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zK4-PC-uag">
+                                <rect key="frame" x="112" y="391" width="151" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Destination"/>
+                                <connections>
+                                    <action selector="searchWithAddressDestina:" destination="OfA-K8-r3y" eventType="touchUpInside" id="ld8-uL-ZS7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaZ-T4-Vlx">
+                                <rect key="frame" x="112" y="123" width="151" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Origin"/>
+                                <connections>
+                                    <action selector="searchWithAddressOrigin:" destination="OfA-K8-r3y" eventType="touchUpInside" id="UDX-pV-D6J"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="destinationButton" destination="zK4-PC-uag" id="LWf-Qg-QTa"/>
+                        <outlet property="originButton" destination="aaZ-T4-Vlx" id="COr-j5-ULK"/>
+                        <outlet property="searchDisplayController" destination="HSu-bt-TXb" id="v2S-8Z-WrA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XO0-WU-cBM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="HSu-bt-TXb">
+                    <connections>
+                        <outlet property="delegate" destination="OfA-K8-r3y" id="sSW-i2-nUy"/>
+                        <outlet property="searchContentsController" destination="OfA-K8-r3y" id="SZS-I6-nRv"/>
+                        <outlet property="searchResultsDataSource" destination="OfA-K8-r3y" id="sQk-wj-nrc"/>
+                        <outlet property="searchResultsDelegate" destination="OfA-K8-r3y" id="RqF-io-sOX"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="3512.8000000000002" y="1650.224887556222"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="e0v-s1-iBk"/>
         <segue reference="bOb-UA-2Yd"/>
+        <segue reference="e0v-s1-iBk"/>
     </inferredMetricsTieBreakers>
 </document>

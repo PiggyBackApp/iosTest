@@ -19,7 +19,6 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var originLabel: UILabel!
     @IBOutlet weak var destinationLabel: UILabel!
     
-    
     let keychain = LoginViewController(nibName: nil, bundle: nil).keychain
     
     var passsengerPickOptions = ["1", "2", "3", "4", "5", "6"]
@@ -329,8 +328,6 @@ extension String {
 extension CreatePostViewController: GMSAutocompleteViewControllerDelegate {
     
     // Handle the user's selection.
-    
-    
     func CreatePostViewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
 
     }
