@@ -1,15 +1,21 @@
 PODS:
   - Alamofire (4.3.0)
+  - GoogleMaps/Base (2.1.1)
+  - GooglePlaces (2.1.1):
+    - GoogleMaps/Base (= 2.1.1)
   - KeychainSwift (7.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.3)
+  - GooglePlaces (~> 2.1.1)
   - KeychainSwift (~> 7.0)
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
+  GooglePlaces: 35636d86e5020cba3856eb988c09a5491de0a65a
   KeychainSwift: b6947435dd78cc442c64a84ae648dd0e871cf448
 
-PODFILE CHECKSUM: 59da2a1a67e17098880284c0ff3f1d914286e044
+PODFILE CHECKSUM: 34d22c805679a2af4426464bb9386bd83ed953da
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

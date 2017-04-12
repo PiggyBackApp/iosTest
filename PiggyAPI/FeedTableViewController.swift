@@ -36,6 +36,8 @@ class FeedTableViewController: UITableViewController {
             getPosts()
         }
         
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -124,11 +126,14 @@ class FeedTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         
         if let passList = postsJson.filter({ "PA" == $0["postType"] as? String}) as [[String:AnyObject]]? {
-            passengersList = passList
+            let sortedPasengersList = passList.sorted{ $0["travelDate"] as! String > $1["travelDate"] as! String}
+            passengersList = sortedPasengersList.reversed()
         }
 
         if let drivsList = postsJson.filter({ $0["postType"] as? String == "DR"}) as [[String:AnyObject]]? {
-            driversList = drivsList
+            
+            let sortedDriversList = drivsList.sorted{ $0["travelDate"] as! String > $1["travelDate"] as! String}
+            driversList = sortedDriversList.reversed()
         }
         
         if segmentCtrl.selectedSegmentIndex == 0 {
@@ -146,14 +151,12 @@ class FeedTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! CustomeTableViewCell
         
-        
         if segmentCtrl.selectedSegmentIndex == 0 {
             cell.origin.text = passengersList[indexPath.row]["origin"] as! String?
             cell.destination.text = passengersList[indexPath.row]["destination"] as! String?
             cell.spotAvailable.text = "\(passengersList[indexPath.row]["emptySeats"]!)"
             cell.carEmoji.text = "🚗"
 
-            
         }
             
         else if segmentCtrl.selectedSegmentIndex == 1 {
@@ -166,9 +169,6 @@ class FeedTableViewController: UITableViewController {
         //cell.textLabel?.text = postsJson[indexPath.row]["title"] as! String?
         
         }
-        
-        
-        
         
         return cell
     }

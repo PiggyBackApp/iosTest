@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D8165CA4A80A028504FAC14 /* Pods_PiggyAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E0F16ED8F9853B28F72B9A9 /* Pods_PiggyAPI.framework */; };
 		D173F6481E8BD0FF0081B0B4 /* CustomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D173F6471E8BD0FF0081B0B4 /* CustomeTableViewCell.swift */; };
+		D1FD66CB1E98635700AAA598 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FD66CA1E98635700AAA598 /* SearchResultsController.swift */; };
 		E42864BB1E69F68000125037 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42864BA1E69F68000125037 /* EditPostViewController.swift */; };
 		E42E663A1E491C9B007A4B30 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E66391E491C9B007A4B30 /* FeedTableViewController.swift */; };
 		E43175FD1E3851FB00B0CE0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43175FC1E3851FB00B0CE0F /* AppDelegate.swift */; };
@@ -19,7 +20,7 @@
 		E439AC711E47B809009A49FF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439AC701E47B809009A49FF /* LoginViewController.swift */; };
 		E439AC731E47B81F009A49FF /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439AC721E47B81F009A49FF /* SignupViewController.swift */; };
 		E439AF531E5C26F700137830 /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E439AF521E5C26F700137830 /* DetailPostViewController.swift */; };
-		E45DA9AF1E9723B000196B4E /* OtherUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45DA9AE1E9723B000196B4E /* OtherUserProfileViewController.swift */; };
+		E43A2E951E9DC4F70067DF1A /* OtherUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43A2E941E9DC4F70067DF1A /* OtherUserProfileViewController.swift */; };
 		E45DA9B11E986D0500196B4E /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45DA9B01E986D0500196B4E /* ChatTableViewController.swift */; };
 		E45DA9B31E986FE300196B4E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45DA9B21E986FE300196B4E /* ChatViewController.swift */; };
 		E45DA9B91E98709F00196B4E /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45DA9B81E98709F00196B4E /* WriteReviewViewController.swift */; };
@@ -32,6 +33,7 @@
 		6CB3D995D4E4973ED0DDFEAE /* Pods-PiggyAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiggyAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PiggyAPI/Pods-PiggyAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		6E0F16ED8F9853B28F72B9A9 /* Pods_PiggyAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PiggyAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D173F6471E8BD0FF0081B0B4 /* CustomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomeTableViewCell.swift; sourceTree = "<group>"; };
+		D1FD66CA1E98635700AAA598 /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		E42864BA1E69F68000125037 /* EditPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
 		E42E66391E491C9B007A4B30 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		E43175F91E3851FB00B0CE0F /* PiggyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiggyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,7 +46,7 @@
 		E439AC701E47B809009A49FF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E439AC721E47B81F009A49FF /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		E439AF521E5C26F700137830 /* DetailPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
-		E45DA9AE1E9723B000196B4E /* OtherUserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OtherUserProfileViewController.swift; path = ../OtherUserProfileViewController.swift; sourceTree = "<group>"; };
+		E43A2E941E9DC4F70067DF1A /* OtherUserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherUserProfileViewController.swift; sourceTree = "<group>"; };
 		E45DA9B01E986D0500196B4E /* ChatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
 		E45DA9B21E986FE300196B4E /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		E45DA9B81E98709F00196B4E /* WriteReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,10 @@
 			children = (
 				E43175FC1E3851FB00B0CE0F /* AppDelegate.swift */,
 				E43175FE1E3851FB00B0CE0F /* MainViewController.swift */,
+				E43A2E941E9DC4F70067DF1A /* OtherUserProfileViewController.swift */,
+				D173F6471E8BD0FF0081B0B4 /* CustomeTableViewCell.swift */,
+				D1FD66CA1E98635700AAA598 /* SearchResultsController.swift */,
+				E42864BA1E69F68000125037 /* EditPostViewController.swift */,
 				E43176001E3851FB00B0CE0F /* Main.storyboard */,
 				E45DA9B71E98706400196B4E /* Profiles */,
 				E45DA9B51E98701300196B4E /* LoginSignup */,
@@ -140,8 +146,6 @@
 			children = (
 				E42E66391E491C9B007A4B30 /* FeedTableViewController.swift */,
 				E4B6A2C11E5BD46A00B9E04E /* CreatePostViewController.swift */,
-				D173F6471E8BD0FF0081B0B4 /* CustomeTableViewCell.swift */,
-				E42864BA1E69F68000125037 /* EditPostViewController.swift */,
 				E439AF521E5C26F700137830 /* DetailPostViewController.swift */,
 			);
 			name = PostsFeed;
@@ -150,7 +154,6 @@
 		E45DA9B71E98706400196B4E /* Profiles */ = {
 			isa = PBXGroup;
 			children = (
-				E45DA9AE1E9723B000196B4E /* OtherUserProfileViewController.swift */,
 				E49760CF1E497EEC0023AE3B /* ProfileViewController.swift */,
 			);
 			name = Profiles;
@@ -279,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E43A2E951E9DC4F70067DF1A /* OtherUserProfileViewController.swift in Sources */,
 				E49760D01E497EEC0023AE3B /* ProfileViewController.swift in Sources */,
 				E439AF531E5C26F700137830 /* DetailPostViewController.swift in Sources */,
 				E4B6A2C21E5BD46A00B9E04E /* CreatePostViewController.swift in Sources */,
@@ -290,9 +294,9 @@
 				E42864BB1E69F68000125037 /* EditPostViewController.swift in Sources */,
 				E45DA9B31E986FE300196B4E /* ChatViewController.swift in Sources */,
 				E45DA9B91E98709F00196B4E /* WriteReviewViewController.swift in Sources */,
-				E45DA9AF1E9723B000196B4E /* OtherUserProfileViewController.swift in Sources */,
 				E43175FD1E3851FB00B0CE0F /* AppDelegate.swift in Sources */,
 				E45DA9B11E986D0500196B4E /* ChatTableViewController.swift in Sources */,
+				D1FD66CB1E98635700AAA598 /* SearchResultsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
