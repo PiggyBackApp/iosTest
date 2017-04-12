@@ -13,10 +13,10 @@ class CustomeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var profilePicCell: UIImageView!
     @IBOutlet weak var origin: UILabel!
-    @IBOutlet weak var carEmoji: UILabel!
     @IBOutlet weak var destination: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var spotAvailable: UILabel!
+    @IBOutlet weak var user: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
