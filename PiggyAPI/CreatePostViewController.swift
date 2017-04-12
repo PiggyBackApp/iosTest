@@ -331,8 +331,6 @@ extension String {
 extension CreatePostViewController: GMSAutocompleteViewControllerDelegate {
     
     // Handle the user's selection.
-    
-    
     func CreatePostViewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
 
     }

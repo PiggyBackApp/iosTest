@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D8165CA4A80A028504FAC14 /* Pods_PiggyAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E0F16ED8F9853B28F72B9A9 /* Pods_PiggyAPI.framework */; };
 		D173F6481E8BD0FF0081B0B4 /* CustomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D173F6471E8BD0FF0081B0B4 /* CustomeTableViewCell.swift */; };
+		D1A612B61E99A16C00D0E6EC /* SearchFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A612B51E99A16C00D0E6EC /* SearchFilterViewController.swift */; };
 		D1FD66CB1E98635700AAA598 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FD66CA1E98635700AAA598 /* SearchResultsController.swift */; };
 		E42864BB1E69F68000125037 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42864BA1E69F68000125037 /* EditPostViewController.swift */; };
 		E42E663A1E491C9B007A4B30 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E66391E491C9B007A4B30 /* FeedTableViewController.swift */; };
@@ -33,6 +34,7 @@
 		6CB3D995D4E4973ED0DDFEAE /* Pods-PiggyAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiggyAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PiggyAPI/Pods-PiggyAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		6E0F16ED8F9853B28F72B9A9 /* Pods_PiggyAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PiggyAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D173F6471E8BD0FF0081B0B4 /* CustomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomeTableViewCell.swift; sourceTree = "<group>"; };
+		D1A612B51E99A16C00D0E6EC /* SearchFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFilterViewController.swift; sourceTree = "<group>"; };
 		D1FD66CA1E98635700AAA598 /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		E42864BA1E69F68000125037 /* EditPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
 		E42E66391E491C9B007A4B30 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				E43175FD1E3851FB00B0CE0F /* AppDelegate.swift in Sources */,
 				E45DA9B11E986D0500196B4E /* ChatTableViewController.swift in Sources */,
 				D1FD66CB1E98635700AAA598 /* SearchResultsController.swift in Sources */,
+				D1A612B61E99A16C00D0E6EC /* SearchFilterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

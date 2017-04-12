@@ -215,6 +215,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="i1E-6v-uP9">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="Etm-uY-x1A">
+                            <connections>
+                                <segue destination="OfA-K8-r3y" kind="presentation" id="U4T-7k-ZSS"/>
+                            </connections>
+                        </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="cux-WS-A65">
                             <rect key="frame" x="103" y="7" width="169" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -240,7 +245,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqx-9s-irM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3506.4000000000001" y="812.74362818590714"/>
+            <point key="canvasLocation" x="3566" y="876"/>
         </scene>
         <!--Create Post View Controller-->
         <scene sceneID="QsL-Jk-7Tu">
