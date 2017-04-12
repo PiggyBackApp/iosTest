@@ -32,7 +32,7 @@ class FeedTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 95;
+        tableView.rowHeight = 115;
         
         if keychain.get("djangoToken") == nil {
             keyExists = false
@@ -213,11 +213,6 @@ class FeedTableViewController: UITableViewController {
                     }
                 }
         
-        
-        
-        
-        
-        
     }
     
 
@@ -266,7 +261,9 @@ class FeedTableViewController: UITableViewController {
             cell.origin.text = passengersList[indexPath.row]["origin"] as! String?
             cell.destination.text = passengersList[indexPath.row]["destination"] as! String?
             cell.spotAvailable.text = "\(passengersList[indexPath.row]["emptySeats"]!)"
-            cell.carEmoji.text = "🚗"
+            cell.user.text = "\(passengersList[indexPath.row]["username"]!)"
+            
+            cell.date.text = "\(passengersList[indexPath.row]["travelDate"]!)"
 
         }
             
@@ -276,7 +273,9 @@ class FeedTableViewController: UITableViewController {
             cell.origin.text = driversList[indexPath.row]["origin"] as! String?
             cell.destination.text = driversList[indexPath.row]["destination"] as! String?
             cell.spotAvailable.text = "\(driversList[indexPath.row]["emptySeats"]!)"
-            cell.carEmoji.text = "🚗"
+            cell.user.text = "\(driversList[indexPath.row]["username"]!)"
+            cell.date.text = "\(driversList[indexPath.row]["travelDate"]!)"
+
         //cell.textLabel?.text = postsJson[indexPath.row]["title"] as! String?
         
         }

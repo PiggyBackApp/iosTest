@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GW1-MZ-fWJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GW1-MZ-fWJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -246,16 +247,16 @@
         <scene sceneID="fLn-nX-FgV">
             <objects>
                 <tableViewController title="Piggy" id="FRx-rz-Cws" customClass="FeedTableViewController" customModule="PiggyAPI" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Hr7-IS-usW">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="115" sectionHeaderHeight="28" sectionFooterHeight="28" id="Hr7-IS-usW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="95" id="Jmm-yK-M0B" customClass="CustomeTableViewCell" customModule="PiggyAPI" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="95"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" indentationLevel="18" indentationWidth="10" reuseIdentifier="postCell" rowHeight="115" id="Jmm-yK-M0B" customClass="CustomeTableViewCell" customModule="PiggyAPI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="115"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jmm-yK-M0B" id="uJx-hJ-yFx">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="114"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KgU-zY-R2x">
@@ -264,50 +265,50 @@
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Origin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aEm-o0-odJ">
-                                            <rect key="frame" x="85" y="21" width="65" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Origin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEm-o0-odJ">
+                                            <rect key="frame" x="81" y="8" width="150" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="u61-KA-GJf">
-                                            <rect key="frame" x="126" y="57" width="42" height="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="u61-KA-GJf">
+                                            <rect key="frame" x="267" y="6" width="71" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Spots" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="x95-Eb-bHO">
-                                            <rect key="frame" x="221" y="57" width="45" height="24"/>
+                                            <rect key="frame" x="280" y="63" width="45" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="car" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dHY-vf-ZrJ">
-                                            <rect key="frame" x="171" y="17" width="32" height="29"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Destination" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buK-q9-YhN">
+                                            <rect key="frame" x="81" y="39" width="150" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Destination" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="buK-q9-YhN">
-                                            <rect key="frame" x="211" y="17" width="143" height="29"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mEt-jr-IsL">
+                                            <rect key="frame" x="8" y="68" width="140" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="carEmoji" destination="dHY-vf-ZrJ" id="rUO-9H-wGm"/>
                                     <outlet property="date" destination="u61-KA-GJf" id="uEe-Iw-Upu"/>
                                     <outlet property="destination" destination="buK-q9-YhN" id="DCJ-bw-mJW"/>
                                     <outlet property="origin" destination="aEm-o0-odJ" id="Aiy-Iw-xBf"/>
                                     <outlet property="profilePicCell" destination="KgU-zY-R2x" id="LQE-jk-RP9"/>
                                     <outlet property="spotAvailable" destination="x95-Eb-bHO" id="gdS-XG-thE"/>
+                                    <outlet property="user" destination="mEt-jr-IsL" id="pYa-9P-b73"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -319,6 +320,7 @@
                     <navigationItem key="navigationItem" id="i1E-6v-uP9">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Filter" id="Etm-uY-x1A">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="modalToFilter:" destination="FRx-rz-Cws" id="obf-9W-vdI"/>
                             </connections>
@@ -330,11 +332,13 @@
                                 <segment title="Passengers"/>
                                 <segment title="Drivers"/>
                             </segments>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="segmentValueChange:" destination="FRx-rz-Cws" eventType="valueChanged" id="ceA-vk-LSO"/>
                             </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" title="+" id="ZUm-TJ-j9g">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="usv-6X-ouw" kind="presentation" id="g59-Sw-6xi"/>
                             </connections>
@@ -349,7 +353,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqx-9s-irM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3566" y="876"/>
+            <point key="canvasLocation" x="3565.5999999999999" y="875.71214392803608"/>
         </scene>
         <!--Create Post View Controller-->
         <scene sceneID="QsL-Jk-7Tu">
@@ -547,7 +551,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="EZJ-1y-mBK"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="user" selectedImage="user" id="EZJ-1y-mBK"/>
                     <connections>
                         <outlet property="profileName" destination="ahc-7M-utf" id="vHs-wV-VkL"/>
                         <outlet property="ranking" destination="saM-JM-NWW" id="FiQ-5e-pIt"/>
@@ -948,7 +952,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7fl-GQ-Wmo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1628" y="812.74362818590714"/>
+            <point key="canvasLocation" x="1457" y="813"/>
         </scene>
         <!--Chat Table View Controller-->
         <scene sceneID="866-0G-ae4">
@@ -963,7 +967,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DeL-Hr-oHI" id="5F3-wu-wzA">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1091,7 +1095,7 @@
                                 </constraints>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6NM-Sp-Tat">
-                                <rect key="frame" x="16" y="198" width="343" height="140"/>
+                                <rect key="frame" x="16" y="198.5" width="343" height="139.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1228,11 +1232,11 @@
             </objects>
             <point key="canvasLocation" x="4504.8000000000002" y="-838.83058470764627"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Rides-->
         <scene sceneID="DSI-ze-Q9i">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0rm-Hh-Uw4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="recents" id="rpf-Pa-3U5"/>
+                    <tabBarItem key="tabBarItem" title="Rides" image="backpack" selectedImage="backpack" id="rpf-Pa-3U5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4Jf-vS-Vtw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1251,7 +1255,7 @@
         <scene sceneID="geg-YZ-p7K">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8qr-Iu-hpo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Requests" id="STG-XE-jch"/>
+                    <tabBarItem key="tabBarItem" title="Requests" image="messages" selectedImage="messages" id="STG-XE-jch"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4QF-oX-hNd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1376,15 +1380,18 @@
         <image name="Button" width="212" height="52"/>
         <image name="PiggySymbol" width="250" height="250"/>
         <image name="PinkOverlay" width="375" height="667"/>
+        <image name="backpack" width="22" height="24"/>
         <image name="envelopeIcon" width="32" height="32"/>
         <image name="line" width="292" height="2"/>
         <image name="lockIcon" width="40" height="40"/>
+        <image name="messages" width="24" height="24"/>
+        <image name="user" width="24" height="24"/>
         <image name="userIcon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e0v-s1-iBk"/>
+        <segue reference="0tW-zR-6xI"/>
         <segue reference="mmc-xq-0tu"/>
-        <segue reference="uKt-jS-wsE"/>
+        <segue reference="e0v-s1-iBk"/>
         <segue reference="bOb-UA-2Yd"/>
     </inferredMetricsTieBreakers>
 </document>
