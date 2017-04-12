@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 
 class FeedTableViewController: UITableViewController {
+
     
     @IBOutlet weak var segmentCtrl: UISegmentedControl!
 
@@ -20,6 +21,10 @@ class FeedTableViewController: UITableViewController {
     let keychain = LoginViewController(nibName: nil, bundle: nil).keychain
     var keyExists = false
     var valueToPass:[String:AnyObject]?
+    
+    var origin : String?
+    var destination : String?
+    
     
     @IBAction func segmentValueChange(_ sender: Any) {
         self.tableView.reloadData()
@@ -53,6 +58,12 @@ class FeedTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let org = self.origin{
+            print("ORG: \(org)")
+        }
+        if let des = self.destination{
+            print("DES: \(des)")
+        }
         
         if keychain.get("djangoToken") == nil {
             keyExists = false
@@ -62,48 +73,151 @@ class FeedTableViewController: UITableViewController {
         }
     }
     
+    
     func getPosts(){
-        let postsEndPoint = "http://localhost:8000/api/posts/?format=json"
-        
-//        print("\nKEYCHAIN\n")
-//        
-//        print(keychain.get("djangoToken")!)
+        print("~~~~~~~~~~~~~~~~~~")
+        print("ORIGIN: \(String(describing: self.origin))")
+        print("DEST: \(String(describing: self.destination))")
+        print("~~~~~~~~~~~~~~~~~~")
         let headers = [
             "Authorization": "Token \(keychain.get("djangoToken")!)",
             "Content-Type": "application/json"
         ]
         
-        Alamofire.request(postsEndPoint, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
-            .responseJSON{
-                response in
-//                debugPrint(response)
-                //to get status code
-                var authSucc = false
-                if let status = response.response?.statusCode {
-                    switch(status){
-                    case 201:
-                        print("example success")
-                        authSucc = true
-                    case 200:
-                        authSucc = true
-                        print("example success 200")
-                    case 401:
-                        self.signOut(self)
-                    default:
-                        print("error with response status: \(status)")
+                if (origin == nil) && (destination == nil){
+                    let postsEndPoint = "http://localhost:8000/api/posts/?format=json"
+                    Alamofire.request(postsEndPoint, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+                        .responseJSON{
+                            response in
+                            var authSucc = false
+                            if let status = response.response?.statusCode {
+                                switch(status){
+                                case 201:
+                                    print("example success")
+                                    authSucc = true
+                                case 200:
+                                    authSucc = true
+                                    print("example success 200")
+                                case 401:
+                                    self.signOut(self)
+                                default:
+                                    print("error with response status: \(status)")
+                                }
+                            }
+                            //to get JSON return value
+                            if(authSucc){
+                                if let result = response.result.value {
+                                    self.postsJson = result as! [[String: AnyObject]]
+                                    //  print(self.postsJson)
+                                    self.tableView.reloadData()
+                                    //  print(JSON)
+                                    
+                                }
+                            }
                     }
                 }
-                //to get JSON return value
-                if(authSucc){
-                    if let result = response.result.value {
-                        self.postsJson = result as! [[String: AnyObject]]
-//                        print(self.postsJson)
-                        self.tableView.reloadData()
-                        //                    print(JSON)
-                        
+                else if (origin == nil){
+                    let postsEndPoint = "http://localhost:8000/api/posts/destination/q=\(self.destination!)/?format=json"
+                    Alamofire.request(postsEndPoint, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+                        .responseJSON{
+                            response in
+                            var authSucc = false
+                            if let status = response.response?.statusCode {
+                                switch(status){
+                                case 201:
+                                    print("example success")
+                                    authSucc = true
+                                case 200:
+                                    authSucc = true
+                                    print("example success 200")
+                                case 401:
+                                    self.signOut(self)
+                                default:
+                                    print("error with response status: \(status)")
+                                }
+                            }
+                            //to get JSON return value
+                            if(authSucc){
+                                if let result = response.result.value {
+                                    self.postsJson = result as! [[String: AnyObject]]
+                                    //  print(self.postsJson)
+                                    self.tableView.reloadData()
+                                    //  print(JSON)
+                                    
+                                }
+                            }
                     }
                 }
-        }
+                else if (destination == nil){
+                    let postsEndPoint = "http://localhost:8000/api/posts/origin/q=\(self.origin!)/?format=json"
+                    Alamofire.request(postsEndPoint, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+                        .responseJSON{
+                            response in
+                            var authSucc = false
+                            if let status = response.response?.statusCode {
+                                switch(status){
+                                case 201:
+                                    print("example success")
+                                    authSucc = true
+                                case 200:
+                                    authSucc = true
+                                    print("example success 200")
+                                case 401:
+                                    self.signOut(self)
+                                default:
+                                    print("error with response status: \(status)")
+                                }
+                            }
+                            //to get JSON return value
+                            if(authSucc){
+                                if let result = response.result.value {
+                                    self.postsJson = result as! [[String: AnyObject]]
+                                    //  print(self.postsJson)
+                                    self.tableView.reloadData()
+                                    //  print(JSON)
+                                    
+                                }
+                            }
+                    }
+                }
+                else{
+                    let postsEndPoint = "http://localhost:8000/api/posts/both/q=\(self.origin!)/q=\(self.destination!)/?format=json"
+                    Alamofire.request(postsEndPoint, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+                        .responseJSON{
+                            response in
+                            var authSucc = false
+                            if let status = response.response?.statusCode {
+                                switch(status){
+                                case 201:
+                                    print("example success")
+                                    authSucc = true
+                                case 200:
+                                    authSucc = true
+                                    print("example success 200")
+                                case 401:
+                                    self.signOut(self)
+                                default:
+                                    print("error with response status: \(status)")
+                                }
+                            }
+                            //to get JSON return value
+                            if(authSucc){
+                                if let result = response.result.value {
+                                    self.postsJson = result as! [[String: AnyObject]]
+                                    //  print(self.postsJson)
+                                    self.tableView.reloadData()
+                                    //  print(JSON)
+                                    
+                                }
+                            }
+                    }
+                }
+        
+        
+        
+        
+        
+        
     }
     
 
@@ -187,6 +301,13 @@ class FeedTableViewController: UITableViewController {
         performSegue(withIdentifier: "detailSegue", sender: self)
     }
     
+    @IBAction func unwindToThisView(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? SearchFilterViewController {
+            self.origin = sourceViewController.origin
+            self.destination = sourceViewController.destination
+        }
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "detailSegue") {
@@ -197,8 +318,27 @@ class FeedTableViewController: UITableViewController {
             // your new view controller should have property that will store passed value
             viewController.detailDict = valueToPass
         }
+        if (segue.identifier == "popoverFilter") {
+            
+            // initialize new view controller and cast it as your view controller
+            let viewController = segue.destination as! SearchFilterViewController
+            
+            // your new view controller should have property that will store passed value
+            if let origin = self.origin {
+                viewController.origin = origin
+            }
+            if let destination = self.destination {
+                viewController.destination = destination
+            }
+        }
     }
  
+    @IBAction func modalToFilter(_ sender: UIBarButtonItem) {
+//        let filterVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchFilterViewController") as! SearchFilterViewController
+//        let filterVC = self.storyboard.
+//        filterVC.delegateRes = self
+        performSegue(withIdentifier: "popoverFilter", sender: self)
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -244,5 +384,14 @@ class FeedTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+////    MARK: - FILTER PROTOCOL
+//    
+//    func setOriginAndDestination(origin: String, destination: String) {
+//        print("WE IN THIS BIIIIIIIII \(origin) \(destination)")
+//        self.origin = origin
+//        self.destination = destination
+//    }
 
 }

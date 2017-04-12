@@ -8,15 +8,18 @@
 
 import UIKit
 import GooglePlaces
+import Alamofire
 
 class SearchFilterViewController: UIViewController, UISearchBarDelegate, GMSAutocompleteFetcherDelegate {
+    
+//    var delegateRes : SendFilterProtocol?
 
     var searchResultController: SearchResultsController!
     var gmsFetcher: GMSAutocompleteFetcher!
     var originOrDestination = 0
     var resultsArray = [String]()
-    var origin = ""
-    var destination = ""
+    var origin : String?
+    var destination : String?
     
     @IBOutlet weak var originButton: UIButton!
     @IBOutlet weak var destinationButton: UIButton!
@@ -29,8 +32,29 @@ class SearchFilterViewController: UIViewController, UISearchBarDelegate, GMSAuto
         gmsFetcher.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let origin = origin {
+            self.originButton.setTitle(origin, for: .normal)
+                    }
+        if let destination = destination {
+            self.destinationButton.setTitle(destination, for: .normal)
+        }
+    }
+    
+    @IBAction func clearOrigin(_ sender: Any) {
+        origin = nil
+        self.originButton.setTitle("Origin", for: .normal)
+    }
+    @IBAction func clearDest(_ sender: Any) {
+        destination = nil
+        self.destinationButton.setTitle("Destination", for: .normal)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,8 +83,13 @@ class SearchFilterViewController: UIViewController, UISearchBarDelegate, GMSAuto
     }
 
     @IBAction func filterPosts(_ sender: Any) {
-        
+//        delegateRes?.setOriginAndDestination(origin: (origin)!, destination: destination!)
+        self.dismiss(animated: true, completion: nil)
+
     }
+    
+    
+
     
     public func didFailAutocompleteWithError(_ error: Error) {
         //        resultText?.text = error.localizedDescription
@@ -167,4 +196,9 @@ extension SearchFilterViewController: GMSAutocompleteViewControllerDelegate {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
+}
+
+
+protocol SendFilterProtocol {
+    func setOriginAndDestination(origin: String, destination: String)
 }
