@@ -12,12 +12,25 @@ import GooglePlaces
 
 class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UISearchBarDelegate, GMSAutocompleteFetcherDelegate{
 
-    @IBOutlet weak var titleField: UITextField!
+    
     @IBOutlet weak var descriptionField: UITextView!
-    @IBOutlet weak var typeField: UITextField!
-    @IBOutlet weak var passengersField: UITextField!
-    @IBOutlet weak var originLabel: UILabel!
-    @IBOutlet weak var destinationLabel: UILabel!
+    @IBOutlet weak var originLabel: UIButton!
+    @IBOutlet weak var destinationLabel: UIButton!
+    @IBOutlet weak var driverButton: UIButton!
+    @IBOutlet weak var passButton: UIButton!
+    
+    var num_pass = 3
+    var dr_or_pa = 0
+    
+    @IBOutlet weak var piggy1: UIButton!
+    @IBOutlet weak var piggy2: UIButton!
+    @IBOutlet weak var piggy3: UIButton!
+    @IBOutlet weak var piggy4: UIButton!
+    @IBOutlet weak var piggy5: UIButton!
+    @IBOutlet weak var piggy6: UIButton!
+    
+    
+    
     
     
     
@@ -32,6 +45,92 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
     var resultsArray = [String]()
     var gmsFetcher: GMSAutocompleteFetcher!
     var dateAndTime = ""
+    
+    
+    @IBAction func typeChosen(_ sender: UIButton) {
+        if sender.tag == 0 {
+            dr_or_pa = 0
+            // DRIVER
+            
+            driverButton.setBackgroundImage(UIImage.init(named: "Button"), for: .normal)
+            passButton.setBackgroundImage(UIImage.init(named: "rect-grey"), for: .normal)
+            
+        }else if sender.tag == 1 {
+            // PASS
+            
+            dr_or_pa = 1
+            driverButton.setBackgroundImage(UIImage.init(named: "rect-grey"), for: .normal)
+            passButton.setBackgroundImage(UIImage.init(named: "Button"), for: .normal)
+            
+        }
+        else{
+            dr_or_pa = 2
+        }
+    }
+    
+    
+    @IBAction func piggyTapped(_ sender: UIButton) {
+        switch sender.tag {
+        case 1:
+            num_pass = 1
+            
+            piggy1.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy2.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+            piggy3.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+            piggy4.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+            piggy5.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+            piggy6.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+        case 2:
+            num_pass = 2
+            piggy1.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy2.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy3.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+            piggy4.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+            piggy5.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+            piggy6.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+        case 3:
+            num_pass = 3
+            piggy1.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy2.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy3.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy4.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+            piggy5.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+            piggy6.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+        case 4:
+            num_pass = 4
+            piggy1.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy2.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy3.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy4.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy5.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+            piggy6.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+        case 5:
+            num_pass = 5
+            piggy1.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy2.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy3.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy4.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy5.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy6.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+        case 6:
+            num_pass = 6
+            piggy1.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy2.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy3.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy4.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy5.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy6.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+        default:
+            piggy1.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy2.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy3.setImage(UIImage.init(named: "piggy-head-1"), for: .normal)
+            piggy4.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+            piggy5.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+            piggy6.setImage(UIImage.init(named: "piggy-empty-1"), for: .normal)
+        }
+    }
+
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -53,11 +152,11 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
         typePickerView.delegate = self
         passengerPickerView.delegate = self
         
-        passengersField.inputView = passengerPickerView
-        typeField.inputView = typePickerView
+//        passengersField.inputView = passengerPickerView
+//        typeField.inputView = typePickerView
         
         
-        descriptionField.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
+        descriptionField.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.5).cgColor
         descriptionField.layer.borderWidth = 1.0
         descriptionField.layer.cornerRadius = 5
         
@@ -93,16 +192,16 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
         
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView.tag == 1 { //type
-            typeField.text = typePickOptions[row]
-        }
-        else if pickerView.tag == 2{
-            passengersField.text = passsengerPickOptions[row]
-        }else{
-            typeField.text = typePickOptions[row]
-        }
-    }
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        if pickerView.tag == 1 { //type
+//            typeField.text = typePickOptions[row]
+//        }
+//        else if pickerView.tag == 2{
+//            passengersField.text = passsengerPickOptions[row]
+//        }else{
+//            typeField.text = typePickOptions[row]
+//        }
+//    }
     
     @IBAction func chooseDate(_ sender: UIDatePicker) {
         
@@ -143,21 +242,21 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
         
 //   TODO:     check if all things filled!
         var type: String
-        if "Driver" == typeField.text {
+        if 0 == dr_or_pa {
             type = "DR"
         }else{
             type = "PA"
         }
         
         let postsEndPoint = "http://localhost:8000/api/posts/?format=json"
-        let newPost = ["title": titleField.text!,
+        let newPost = ["title": "title",
                     "creator": keychain.get("userID")!,
                     "description": descriptionField.text!,
                     "postType": type,
-                    "origin": originLabel.text!,
-                    "destination": destinationLabel.text!,
-                    "emptySeats": Int(passengersField.text!)! ,
-                    "passengerCapacity": Int(passengersField.text!)! ,
+                    "origin": originLabel.titleLabel?.text,
+                    "destination": destinationLabel.titleLabel?.text,
+                    "emptySeats": num_pass ,
+                    "passengerCapacity": num_pass ,
                     "travelDate": dateAndTime ,
                     "status": "A"] as [String : Any]
         
@@ -274,11 +373,13 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
         print(parsedCity)
         
         if originOrDestination == 0 {
-            originLabel.text = parsedCity
+            originLabel.setTitle(parsedCity, for: .normal)
+//            originLabel.text = parsedCity
         }
         
         else if originOrDestination == 1 {
-            destinationLabel.text = parsedCity
+            destinationLabel.setTitle(parsedCity, for: .normal)
+//            destinationLabel.text = parsedCity
         }
         
         dismiss(animated: true, completion: nil)

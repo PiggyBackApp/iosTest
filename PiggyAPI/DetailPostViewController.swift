@@ -15,27 +15,98 @@ class DetailPostViewController: UIViewController {
     
     var detailDict :[String:AnyObject]!
     
-    @IBOutlet weak var postTitle: UILabel!
+
     @IBOutlet weak var destination: UILabel!
     @IBOutlet weak var origin: UILabel!
-    @IBOutlet weak var status: UILabel!
-    @IBOutlet weak var emptySeats: UILabel!
-    @IBOutlet weak var capacity: UILabel!
+    
+    
+    
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var creatorLink: UIButton!
+    
+    @IBOutlet weak var piggy1: UIImageView!
+    @IBOutlet weak var piggy2: UIImageView!
+    @IBOutlet weak var piggy3: UIImageView!
+    @IBOutlet weak var piggy4: UIImageView!
+    @IBOutlet weak var piggy5: UIImageView!
+    @IBOutlet weak var piggy6: UIImageView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        postTitle.text = detailDict["title"] as! String?
+//        postTitle.text = detailDict["title"] as! String?
         destination.text = detailDict["destination"] as! String?
         origin.text = detailDict["origin"] as! String?
-        status.text = detailDict["status"] as! String?
-        capacity.text = "\(detailDict["passengerCapacity"]!)"
-        emptySeats.text = "\(detailDict["emptySeats"]!)"
+//        status.text = detailDict["status"] as! String?
+//        capacity.text = "\(detailDict["passengerCapacity"]!)"
+//        emptySeats.text = "\(detailDict["emptySeats"]!)"
         textView.text = detailDict["description"] as! String?
         creatorLink.setTitle("\(detailDict["username"]!)", for: .normal)
+        
+        switch ((detailDict["passengerCapacity"] as! Int) - (detailDict["emptySeats"] as! Int)) {
+        case 0:
+            piggy1.image = UIImage.init(named: "piggy-empty-1")
+            piggy2.image = UIImage.init(named: "piggy-empty-1")
+            piggy3.image = UIImage.init(named: "piggy-empty-1")
+            piggy4.image = UIImage.init(named: "piggy-empty-1")
+            piggy5.image = UIImage.init(named: "piggy-empty-1")
+            piggy6.image = UIImage.init(named: "piggy-empty-1")
+        case 1:
+            piggy1.image = UIImage.init(named: "piggy-head-1")
+            piggy2.image = UIImage.init(named: "piggy-empty-1")
+            piggy3.image = UIImage.init(named: "piggy-empty-1")
+            piggy4.image = UIImage.init(named: "piggy-empty-1")
+            piggy5.image = UIImage.init(named: "piggy-empty-1")
+            piggy6.image = UIImage.init(named: "piggy-empty-1")
+        case 2:
+            
+            piggy1.image = UIImage.init(named: "piggy-head-1")
+            piggy2.image = UIImage.init(named: "piggy-head-1")
+            piggy3.image = UIImage.init(named: "piggy-empty-1")
+            piggy4.image = UIImage.init(named: "piggy-empty-1")
+            piggy5.image = UIImage.init(named: "piggy-empty-1")
+            piggy6.image = UIImage.init(named: "piggy-empty-1")
+        case 3:
+            
+            piggy1.image = UIImage.init(named: "piggy-head-1")
+            piggy2.image = UIImage.init(named: "piggy-head-1")
+            piggy3.image = UIImage.init(named: "piggy-head-1")
+            piggy4.image = UIImage.init(named: "piggy-empty-1")
+            piggy5.image = UIImage.init(named: "piggy-empty-1")
+            piggy6.image = UIImage.init(named: "piggy-empty-1")
+        case 4:
+            
+            piggy1.image = UIImage.init(named: "piggy-head-1")
+            piggy2.image = UIImage.init(named: "piggy-head-1")
+            piggy3.image = UIImage.init(named: "piggy-head-1")
+            piggy4.image = UIImage.init(named: "piggy-head-1")
+            piggy5.image = UIImage.init(named: "piggy-empty-1")
+            piggy6.image = UIImage.init(named: "piggy-empty-1")
+        case 5:
+            
+            piggy1.image = UIImage.init(named: "piggy-head-1")
+            piggy2.image = UIImage.init(named: "piggy-head-1")
+            piggy3.image = UIImage.init(named: "piggy-head-1")
+            piggy4.image = UIImage.init(named: "piggy-head-1")
+            piggy5.image = UIImage.init(named: "piggy-head-1")
+            piggy6.image = UIImage.init(named: "piggy-empty-1")
+        case 6:
+            
+            piggy1.image = UIImage.init(named: "piggy-head-1")
+            piggy2.image = UIImage.init(named: "piggy-head-1")
+            piggy3.image = UIImage.init(named: "piggy-head-1")
+            piggy4.image = UIImage.init(named: "piggy-head-1")
+            piggy5.image = UIImage.init(named: "piggy-head-1")
+            piggy6.image = UIImage.init(named: "piggy-head-1")
+        default:
+            piggy1.image = UIImage.init(named: "piggy-head-1")
+            piggy2.image = UIImage.init(named: "piggy-head-1")
+            piggy3.image = UIImage.init(named: "piggy-empty-1")
+            piggy4.image = UIImage.init(named: "piggy-empty-1")
+            piggy5.image = UIImage.init(named: "piggy-empty-1")
+            piggy6.image = UIImage.init(named: "piggy-empty-1")
+        }
         
     }
 
