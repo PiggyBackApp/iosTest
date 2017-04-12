@@ -64,7 +64,7 @@ class ProfileViewController: UIViewController {
                         let firstName = self.profileModel["user"]?["first_name"] as! String
                         let lastName = self.profileModel["user"]?["last_name"] as! String
 //                        let rankNum = Float("\(self.profileModel["rating"]!)")
-                        let rankNum = (self.profileModel["rating"] as!  NSString).floatValue
+                        let rankNum = (self.profileModel["average_rating"] as! Double)
                         
                         self.profileName.text = firstName.capitalized + " " + lastName.capitalized
                         self.ranking.text = "\(rankNum)"
