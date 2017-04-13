@@ -257,7 +257,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jmm-yK-M0B" id="uJx-hJ-yFx">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KgU-zY-R2x">
@@ -362,6 +362,7 @@
                         <outlet property="segmentCtrl" destination="cux-WS-A65" id="IHO-is-q6m"/>
                         <segue destination="JSc-1E-b4Y" kind="show" identifier="detailSegue" id="N4y-sF-N2C"/>
                         <segue destination="OfA-K8-r3y" kind="presentation" identifier="popoverFilter" id="nNi-9T-lrf"/>
+                        <segue destination="pdX-P1-KaJ" kind="presentation" identifier="signoutSegue" id="swD-AT-rFw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqx-9s-irM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1059,7 +1060,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DeL-Hr-oHI" id="5F3-wu-wzA">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1312,7 +1313,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0rm-Hh-Uw4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Rides" image="camp-bag" id="rpf-Pa-3U5"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4Jf-vS-Vtw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Jf-vS-Vtw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1331,7 +1332,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8qr-Iu-hpo" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Requests" image="chat-user" id="STG-XE-jch"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4QF-oX-hNd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4QF-oX-hNd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1435,7 +1436,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="nxp-vB-dG5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="IQb-Tr-3GI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IQb-Tr-3GI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1472,6 +1473,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="e0v-s1-iBk"/>
         <segue reference="mmc-xq-0tu"/>
-        <segue reference="5cc-u3-nma"/>
+        <segue reference="swD-AT-rFw"/>
     </inferredMetricsTieBreakers>
 </document>
