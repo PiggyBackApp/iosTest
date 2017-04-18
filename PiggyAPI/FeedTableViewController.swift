@@ -73,6 +73,12 @@ class FeedTableViewController: UITableViewController {
         }
     }
     
+    func removeSpaces(originDestination : String) -> String{
+        let underlinedString = originDestination.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
+        print(underlinedString)
+        return underlinedString
+    }
+    
     
     func getPosts(){
         print("~~~~~~~~~~~~~~~~~~")
@@ -117,7 +123,8 @@ class FeedTableViewController: UITableViewController {
                     }
                 }
                 else if (origin == nil){
-                    let postsEndPoint = "http://localhost:8000/api/posts/destination/q=\(self.destination!)/?format=json"
+                    let underlineDestination = removeSpaces(originDestination: self.destination!)
+                    let postsEndPoint = "http://localhost:8000/api/posts/destination/q=\(underlineDestination)/?format=json"
                     Alamofire.request(postsEndPoint, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
                         .responseJSON{
                             response in
@@ -149,7 +156,8 @@ class FeedTableViewController: UITableViewController {
                     }
                 }
                 else if (destination == nil){
-                    let postsEndPoint = "http://localhost:8000/api/posts/origin/q=\(self.origin!)/?format=json"
+                    let underlineOrigin = removeSpaces(originDestination: self.origin!)
+                    let postsEndPoint = "http://localhost:8000/api/posts/origin/q=\(underlineOrigin)/?format=json"
                     Alamofire.request(postsEndPoint, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
                         .responseJSON{
                             response in
@@ -181,7 +189,10 @@ class FeedTableViewController: UITableViewController {
                     }
                 }
                 else{
-                    let postsEndPoint = "http://localhost:8000/api/posts/both/q=\(self.origin!)/q=\(self.destination!)/?format=json"
+                    let underlineDestination = removeSpaces(originDestination: self.destination!)
+                    let underlineOrigin = removeSpaces(originDestination: self.origin!)
+
+                    let postsEndPoint = "http://localhost:8000/api/posts/both/q=\(underlineOrigin)/q=\(underlineDestination)/?format=json"
                     Alamofire.request(postsEndPoint, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
                         .responseJSON{
                             response in
