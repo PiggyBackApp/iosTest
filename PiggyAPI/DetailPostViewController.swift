@@ -44,7 +44,7 @@ class DetailPostViewController: UIViewController {
         textView.text = detailDict["description"] as! String?
         creatorLink.setTitle("\(detailDict["username"]!)", for: .normal)
         
-        switch ((detailDict["passengerCapacity"] as! Int) - (detailDict["emptySeats"] as! Int)) {
+        switch ( (detailDict["seats_taken"] as! Int)) {
         case 0:
             piggy1.image = UIImage.init(named: "piggy-empty-1")
             piggy2.image = UIImage.init(named: "piggy-empty-1")

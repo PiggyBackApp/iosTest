@@ -264,23 +264,27 @@ class FeedTableViewController: UITableViewController {
         let dateFormatter = DateFormatter()
 
         if segmentCtrl.selectedSegmentIndex == 0 {
-            cell.origin.text = passengersList[indexPath.row]["origin"] as! String?
-            cell.destination.text = passengersList[indexPath.row]["destination"] as! String?
+            if let travelDate = passengersList[indexPath.row]["travelDate"] as? String {
+                print(travelDate)
+                cell.origin.text = passengersList[indexPath.row]["origin"] as! String?
+                cell.destination.text = passengersList[indexPath.row]["destination"] as! String?
+                
+                cell.user.text = "\(passengersList[indexPath.row]["username"]!)"
+                
+                let myDate = travelDate
+                //print(myDate)
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+                
+                let date = dateFormatter.date(from: myDate)
+                
+                dateFormatter.dateFormat = "MMM d, h:mm a"
+                
+                let dateString = dateFormatter.string(from: date!)
+//                let dateAndTime = dateFormatter.date(from: (passengersList[indexPath.row]["travelDate"]!) as! String)
+                
+                cell.date.text = "\(dateString)"
+            }
             
-            cell.user.text = "\(passengersList[indexPath.row]["username"]!)"
-            
-            let myDate = passengersList[indexPath.row]["travelDate"] as! String?
-            //print(myDate)
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-            
-            let date = dateFormatter.date(from: myDate!)
-            
-            dateFormatter.dateFormat = "MMM d, h:mm a"
-            
-            let dateString = dateFormatter.string(from: date!)
-            let dateAndTime = dateFormatter.date(from: (passengersList[indexPath.row]["travelDate"]!) as! String)
-            
-            cell.date.text = "\(dateString)"
 
             //cell.date.text = "\(passengersList[indexPath.row]["travelDate"]!)"
 
@@ -288,27 +292,30 @@ class FeedTableViewController: UITableViewController {
             
         else if segmentCtrl.selectedSegmentIndex == 1 {
             //cell.textLabel?.text = driversList[indexPath.row]["title"] as! String?        }
-        
-            cell.origin.text = driversList[indexPath.row]["origin"] as! String?
-            cell.destination.text = driversList[indexPath.row]["destination"] as! String?
-            cell.user.text = "\(driversList[indexPath.row]["username"]!)"
             
-            let myDate = driversList[indexPath.row]["travelDate"] as! String?
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+            if let travelDate = driversList[indexPath.row]["travelDate"] as! String? {
+                cell.origin.text = driversList[indexPath.row]["origin"] as! String?
+                cell.destination.text = driversList[indexPath.row]["destination"] as! String?
+                cell.user.text = "\(driversList[indexPath.row]["username"]!)"
+                
+                let myDate = travelDate
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+                
+                let date = dateFormatter.date(from: myDate)
+                
+                dateFormatter.dateFormat = "MMM d, h:mm a"
+                
+                let dateString = dateFormatter.string(from: date!)
+                
+//                let dateAndTime = dateFormatter.date(from: (driversList[indexPath.row]["travelDate"]!) as! String)
+                
+                //print("--------------", dateString as! String?)
+                
+                cell.date.text = "\(dateString)"
+                
+                //            cell.date.text = "\(driversList[indexPath.row]["travelDate"]!)"
+            }
             
-            let date = dateFormatter.date(from: myDate!)
-            
-            dateFormatter.dateFormat = "MMM d, h:mm a"
-            
-            let dateString = dateFormatter.string(from: date!)
-            
-            let dateAndTime = dateFormatter.date(from: (driversList[indexPath.row]["travelDate"]!) as! String)
-            
-            //print("--------------", dateString as! String?)
-            
-            cell.date.text = "\(dateString)"
-            
-//            cell.date.text = "\(driversList[indexPath.row]["travelDate"]!)"
         }
         
         return cell
