@@ -127,12 +127,16 @@ class DetailPostViewController: UIViewController {
         if  "DR" == detailDict["postType"] as! String? {
             driver = detailDict["creator"] as! Int
             pass = Int(keychain.get("userID")!)!
+            performSegue(withIdentifier: "requestDr", sender: self)
+
+            
 //            pass = 22
         }
         else{
             driver = Int(keychain.get("userID")!)!
 //            driver = 22
             pass = detailDict["creator"] as! Int
+            performSegue(withIdentifier: "requestPass", sender: self)
         }
         
         
