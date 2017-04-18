@@ -11,10 +11,22 @@ import UIKit
 class ChatViewController: UIViewController {
     
     var requestModel : [String:AnyObject]?
+    
+    @IBOutlet weak var writeReviewButton: UIButton!
+    @IBOutlet weak var confirmationLabel: UILabel!
+    @IBOutlet weak var declineButton: UIButton!
+    @IBOutlet weak var acceptButton: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //TODO: figure out when to show review with date
+        if(true){
+            writeReviewButton.isHidden = true
+        }
+//        if ((requestModel?["accepted"]!) != nil) {
+//            print("NOT RESPNSDED YET")
+//        }
         // Do any additional setup after loading the view.
     }
 
