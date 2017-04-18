@@ -676,7 +676,6 @@
                                 <state key="normal" image="close-symbol"/>
                                 <connections>
                                     <action selector="cancelRequesu:" destination="ZG3-7u-X1B" eventType="touchUpInside" id="CYO-z2-0tD"/>
-                                    <action selector="exitCreateView:" destination="usv-6X-ouw" eventType="touchUpInside" id="ysH-Pe-kHi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLI-QM-IpQ">
@@ -684,7 +683,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Request"/>
                                 <connections>
-                                    <action selector="makeRequest:" destination="JSc-1E-b4Y" eventType="touchUpInside" id="91Z-4V-oEy"/>
+                                    <action selector="sendRequest:" destination="ZG3-7u-X1B" eventType="touchUpInside" id="sTF-py-cJF"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🐷" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhf-Y6-QvF">
