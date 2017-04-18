@@ -20,8 +20,19 @@ class ChatViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //TODO: figure out when to show review with date
-        if(true){
+        
+        let today = Date()
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        
+        let formattedToday = dateFormatter.string(from: today)
+        let travelDateTime = requestModel!["travelDate"]!
+        
+        print(formattedToday)
+        print(travelDateTime)
+        
+        if(travelDateTime as! String >= formattedToday){
             writeReviewButton.isHidden = true
         }
 //        if ((requestModel?["accepted"]!) != nil) {
