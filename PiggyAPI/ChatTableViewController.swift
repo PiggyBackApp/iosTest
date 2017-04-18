@@ -18,7 +18,7 @@ class ChatTableViewController: UITableViewController {
     override func viewDidLoad() {
         getRequests()
         super.viewDidLoad()
-        
+        tableView.rowHeight = 70
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -81,9 +81,13 @@ class ChatTableViewController: UITableViewController {
 
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! RequestsTableViewCell
         var f_origin = ""
         var f_destination = ""
+        var f_driver_username = ""
+        var f_pass_username = ""
+        var f_username = ""
+        var f_date = ""
         
         if let origin = requestsJson[indexPath.row]["origin"] as? String {
             f_origin = origin
@@ -93,7 +97,39 @@ class ChatTableViewController: UITableViewController {
             f_destination = destination
         }
         
-        cell.textLabel?.text = f_origin + " -> " + f_destination
+        if let driver_username = self.requestsJson[indexPath.row]["driver_username"] as? String {
+            f_driver_username = driver_username
+        }
+        
+        if let passenger_username = self.requestsJson[indexPath.row]["passenger_username"] as? String {
+            f_pass_username = passenger_username
+        }
+        
+        if f_pass_username == "\(keychain.get("userID")!)" {
+            f_username = f_driver_username
+        }
+        else{
+            f_username = f_pass_username
+        }
+        
+        if let travelDate = self.requestsJson[indexPath.row]["travelDate"] {
+            f_date = travelDate as! String
+            //SETTING DATE FORMAT:
+            print("tiny rickkkkkk " + f_date)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+            let date = dateFormatter.date(from: f_date)
+            print(date)
+            dateFormatter.dateFormat = "MMM d, h:mm a"
+            f_date = dateFormatter.string(from: date!)
+            print(f_date)
+        }
+        
+        
+        cell.tripLocations.text = f_origin + " to " + f_destination
+        cell.date.text = f_date
+        cell.username.text = f_username
+        
 
         return cell
     }
