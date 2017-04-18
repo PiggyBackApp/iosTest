@@ -127,12 +127,16 @@ class DetailPostViewController: UIViewController {
         if  "DR" == detailDict["postType"] as! String? {
             driver = detailDict["creator"] as! Int
             pass = Int(keychain.get("userID")!)!
+            performSegue(withIdentifier: "requestPass", sender: self)
+
+            
 //            pass = 22
         }
         else{
             driver = Int(keychain.get("userID")!)!
 //            driver = 22
             pass = detailDict["creator"] as! Int
+            performSegue(withIdentifier: "requestDr", sender: self)
         }
         
         
@@ -225,6 +229,13 @@ class DetailPostViewController: UIViewController {
             
             // your new view controller should have property that will store passed value
             viewController.userID = detailDict["creator"] as? Int
+        }
+        if (segue.identifier == "requestPass") {
+            // initialize new view controller and cast it as your view controller
+            let viewController = segue.destination as! NumberPiggysRequestViewController
+            
+            // your new view controller should have property that will store passed value
+            viewController.detailDict = detailDict
         }
     }
     
