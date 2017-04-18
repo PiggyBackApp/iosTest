@@ -61,6 +61,7 @@
 		E43A2E951E9DC4F70067DF1A /* OtherUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43A2E941E9DC4F70067DF1A /* OtherUserProfileViewController.swift */; };
 		E43A2E991E9DC7D20067DF1A /* SearchFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43A2E981E9DC7D20067DF1A /* SearchFilterViewController.swift */; };
 		E49760D01E497EEC0023AE3B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49760CF1E497EEC0023AE3B /* ProfileViewController.swift */; };
+		E4A804401EA580E20098CB44 /* RequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A8043F1EA580E20098CB44 /* RequestsTableViewCell.swift */; };
 		E4BD86751E9E231400076B8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4BD86741E9E231400076B8E /* Assets.xcassets */; };
 		E4BD86771E9E24C700076B8E /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD86761E9E24C700076B8E /* WriteReviewViewController.swift */; };
 		E4BD86791E9E250200076B8E /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD86781E9E250200076B8E /* CreatePostViewController.swift */; };
@@ -129,6 +130,7 @@
 		E43A2E941E9DC4F70067DF1A /* OtherUserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherUserProfileViewController.swift; sourceTree = "<group>"; };
 		E43A2E981E9DC7D20067DF1A /* SearchFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFilterViewController.swift; sourceTree = "<group>"; };
 		E49760CF1E497EEC0023AE3B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E4A8043F1EA580E20098CB44 /* RequestsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsTableViewCell.swift; sourceTree = "<group>"; };
 		E4BD86741E9E231400076B8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4BD86761E9E24C700076B8E /* WriteReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
 		E4BD86781E9E250200076B8E /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				D1FD66CA1E98635700AAA598 /* SearchResultsController.swift */,
 				E43A2E941E9DC4F70067DF1A /* OtherUserProfileViewController.swift */,
 				D173F6471E8BD0FF0081B0B4 /* CustomeTableViewCell.swift */,
+				E4A8043F1EA580E20098CB44 /* RequestsTableViewCell.swift */,
 				E42864BA1E69F68000125037 /* EditPostViewController.swift */,
 				E4BD867E1E9E259000076B8E /* Main.storyboard */,
 				E4BD86781E9E250200076B8E /* CreatePostViewController.swift */,
@@ -429,6 +432,7 @@
 				E49760D01E497EEC0023AE3B /* ProfileViewController.swift in Sources */,
 				E4BD86771E9E24C700076B8E /* WriteReviewViewController.swift in Sources */,
 				E439AF531E5C26F700137830 /* DetailPostViewController.swift in Sources */,
+				E4A804401EA580E20098CB44 /* RequestsTableViewCell.swift in Sources */,
 				E439AC711E47B809009A49FF /* LoginViewController.swift in Sources */,
 				D173F6481E8BD0FF0081B0B4 /* CustomeTableViewCell.swift in Sources */,
 				E43A2E991E9DC7D20067DF1A /* SearchFilterViewController.swift in Sources */,
