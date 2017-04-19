@@ -78,16 +78,32 @@ class DetailPostViewController: UIViewController {
         for var i in 0..<passengerCap {
             print(x)
             
-            if(seatsTaken > 0){
-                let imageView = UIImageView(image: piggyImages[i])
-                imageView.frame = CGRect(x: x, y: 497 , width: 30, height:27)
-                view.addSubview(imageView)
+            if(detailDict["postType"] as! String == "DR"){
+                if(seatsTaken > 0){
+                    let imageView = UIImageView(image: piggyImages[i])
+                    imageView.frame = CGRect(x: x, y: 497 , width: 30, height:27)
+                    view.addSubview(imageView)
+                }
+                else {
+                    let imageView = UIImageView(image: emptyPiggies[i])
+                    imageView.frame = CGRect(x: x, y: 497 , width: 30, height:27)
+                    view.addSubview(imageView)
+                }
             }
+            
             else {
-                let imageView = UIImageView(image: emptyPiggies[i])
-                imageView.frame = CGRect(x: x, y: 497 , width: 30, height:27)
-                view.addSubview(imageView)
+                if(seatsTaken > 0){
+                    let imageView = UIImageView(image: emptyPiggies[i])
+                    imageView.frame = CGRect(x: x, y: 497 , width: 30, height:27)
+                    view.addSubview(imageView)
+                }
+                else {
+                    let imageView = UIImageView(image: piggyImages[i])
+                    imageView.frame = CGRect(x: x, y: 497 , width: 30, height:27)
+                    view.addSubview(imageView)
+                }
             }
+            
             seatsTaken -= 1
 //            
 //            imageView.frame = CGRect(x: x, y: 550 , width: 30, height:27)
