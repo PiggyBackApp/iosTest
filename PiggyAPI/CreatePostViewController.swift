@@ -23,6 +23,7 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
     var dr_or_pa = 0
     
     @IBOutlet weak var piggy1: UIButton!
+    @IBOutlet weak var piggiesSpotsLabels: UILabel!
     @IBOutlet weak var piggy2: UIButton!
     @IBOutlet weak var piggy3: UIButton!
     @IBOutlet weak var piggy4: UIButton!

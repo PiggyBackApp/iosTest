@@ -29,14 +29,6 @@ class DetailPostViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var creatorLink: UIButton!
     
-    @IBOutlet weak var piggy1: UIImageView!
-    @IBOutlet weak var piggy2: UIImageView!
-    @IBOutlet weak var piggy3: UIImageView!
-    @IBOutlet weak var piggy4: UIImageView!
-    @IBOutlet weak var piggy5: UIImageView!
-    @IBOutlet weak var piggy6: UIImageView!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,6 +41,9 @@ class DetailPostViewController: UIViewController {
             requestButton.isHidden = true
         }
         
+        var seatsTaken = detailDict["seats_taken"] as! Int
+        let passengerCap = detailDict["passengerCapacity"] as! Int
+        print(passengerCap)
         let dateFormatter = DateFormatter()
         let myDate = detailDict["travelDate"]
         let postCreatedDate = detailDict["timePosted"]
@@ -63,10 +58,7 @@ class DetailPostViewController: UIViewController {
         let dateString = dateFormatter.string(from: date!)
         
         let dateFormatter1 = DateFormatter()
-        print(dateFormatter1.timeSince(from: NSDate(), numericDates: true))  // Just now
-        
         let timeAgo = dateFormatter1.timeSince(from: postedTime! as NSDate, numericDates: true)
-        print(timeAgo)  // 9 minutes ago
         
         createdDate.text = "\(timeAgo)"
         dateLabel.text = "\(dateString)"
@@ -75,68 +67,32 @@ class DetailPostViewController: UIViewController {
         textView.text = detailDict["description"] as! String?
         creatorLink.setTitle("\(detailDict["username"]!)", for: .normal)
         
-        switch ( (detailDict["seats_taken"] as! Int)) {
-        case 0:
-            piggy1.image = UIImage.init(named: "piggy-empty-1")
-            piggy2.image = UIImage.init(named: "piggy-empty-1")
-            piggy3.image = UIImage.init(named: "piggy-empty-1")
-            piggy4.image = UIImage.init(named: "piggy-empty-1")
-            piggy5.image = UIImage.init(named: "piggy-empty-1")
-            piggy6.image = UIImage.init(named: "piggy-empty-1")
-        case 1:
-            piggy1.image = UIImage.init(named: "piggy-head-1")
-            piggy2.image = UIImage.init(named: "piggy-empty-1")
-            piggy3.image = UIImage.init(named: "piggy-empty-1")
-            piggy4.image = UIImage.init(named: "piggy-empty-1")
-            piggy5.image = UIImage.init(named: "piggy-empty-1")
-            piggy6.image = UIImage.init(named: "piggy-empty-1")
-        case 2:
+        let piggy1 = #imageLiteral(resourceName: "piggy-head-1")
+        let emptyPig1 = #imageLiteral(resourceName: "piggy-empty-1")
+        
+        let piggyImages = [piggy1, piggy1, piggy1, piggy1, piggy1, piggy1]
+        let emptyPiggies = [emptyPig1, emptyPig1, emptyPig1, emptyPig1, emptyPig1, emptyPig1]
+        
+        //38
+        var x = 77
+        for var i in 0..<passengerCap {
+            print(x)
             
-            piggy1.image = UIImage.init(named: "piggy-head-1")
-            piggy2.image = UIImage.init(named: "piggy-head-1")
-            piggy3.image = UIImage.init(named: "piggy-empty-1")
-            piggy4.image = UIImage.init(named: "piggy-empty-1")
-            piggy5.image = UIImage.init(named: "piggy-empty-1")
-            piggy6.image = UIImage.init(named: "piggy-empty-1")
-        case 3:
-            
-            piggy1.image = UIImage.init(named: "piggy-head-1")
-            piggy2.image = UIImage.init(named: "piggy-head-1")
-            piggy3.image = UIImage.init(named: "piggy-head-1")
-            piggy4.image = UIImage.init(named: "piggy-empty-1")
-            piggy5.image = UIImage.init(named: "piggy-empty-1")
-            piggy6.image = UIImage.init(named: "piggy-empty-1")
-        case 4:
-            
-            piggy1.image = UIImage.init(named: "piggy-head-1")
-            piggy2.image = UIImage.init(named: "piggy-head-1")
-            piggy3.image = UIImage.init(named: "piggy-head-1")
-            piggy4.image = UIImage.init(named: "piggy-head-1")
-            piggy5.image = UIImage.init(named: "piggy-empty-1")
-            piggy6.image = UIImage.init(named: "piggy-empty-1")
-        case 5:
-            
-            piggy1.image = UIImage.init(named: "piggy-head-1")
-            piggy2.image = UIImage.init(named: "piggy-head-1")
-            piggy3.image = UIImage.init(named: "piggy-head-1")
-            piggy4.image = UIImage.init(named: "piggy-head-1")
-            piggy5.image = UIImage.init(named: "piggy-head-1")
-            piggy6.image = UIImage.init(named: "piggy-empty-1")
-        case 6:
-            
-            piggy1.image = UIImage.init(named: "piggy-head-1")
-            piggy2.image = UIImage.init(named: "piggy-head-1")
-            piggy3.image = UIImage.init(named: "piggy-head-1")
-            piggy4.image = UIImage.init(named: "piggy-head-1")
-            piggy5.image = UIImage.init(named: "piggy-head-1")
-            piggy6.image = UIImage.init(named: "piggy-head-1")
-        default:
-            piggy1.image = UIImage.init(named: "piggy-head-1")
-            piggy2.image = UIImage.init(named: "piggy-head-1")
-            piggy3.image = UIImage.init(named: "piggy-empty-1")
-            piggy4.image = UIImage.init(named: "piggy-empty-1")
-            piggy5.image = UIImage.init(named: "piggy-empty-1")
-            piggy6.image = UIImage.init(named: "piggy-empty-1")
+            if(seatsTaken > 0){
+                let imageView = UIImageView(image: piggyImages[i])
+                imageView.frame = CGRect(x: x, y: 497 , width: 30, height:27)
+                view.addSubview(imageView)
+            }
+            else {
+                let imageView = UIImageView(image: emptyPiggies[i])
+                imageView.frame = CGRect(x: x, y: 497 , width: 30, height:27)
+                view.addSubview(imageView)
+            }
+            seatsTaken -= 1
+//            
+//            imageView.frame = CGRect(x: x, y: 550 , width: 30, height:27)
+//            view.addSubview(imageView)
+            x += 38
         }
         
     }
