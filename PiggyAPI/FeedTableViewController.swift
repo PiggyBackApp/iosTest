@@ -283,7 +283,6 @@ class FeedTableViewController: UITableViewController {
                 cell.user.text = "\(passengersList[indexPath.row]["username"]!)"
                 
                 let myDate = travelDate
-                //print(myDate)
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
                 
                 let date = dateFormatter.date(from: myDate)
@@ -291,7 +290,6 @@ class FeedTableViewController: UITableViewController {
                 dateFormatter.dateFormat = "MMM d, h:mm a"
                 
                 let dateString = dateFormatter.string(from: date!)
-//                let dateAndTime = dateFormatter.date(from: (passengersList[indexPath.row]["travelDate"]!) as! String)
                 
                 cell.date.text = "\(dateString)"
             }
