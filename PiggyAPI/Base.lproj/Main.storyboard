@@ -404,7 +404,7 @@
                                     <action selector="piggyTapped:" destination="usv-6X-ouw" eventType="touchUpInside" id="Gdd-La-3q3"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dfj-jz-gRk">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dfj-jz-gRk">
                                 <rect key="frame" x="85" y="340" width="250" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -465,7 +465,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqn-y5-eqe">
                                 <rect key="frame" x="179" y="71" width="24" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -504,21 +504,21 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How many piggies can you take?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fV-5U-tME">
                                 <rect key="frame" x="85" y="232" width="250" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose your travel date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M96-VO-UPK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose your travel date:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M96-VO-UPK">
                                 <rect key="frame" x="98" y="440" width="187" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trip description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uw-T8-XNr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trip description:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uw-T8-XNr">
                                 <rect key="frame" x="125" y="311" width="125" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -586,6 +586,7 @@
                         <outlet property="driverButton" destination="ess-Nj-jOn" id="WHf-2e-szF"/>
                         <outlet property="originLabel" destination="NHH-QQ-PvA" id="m4d-yt-Z9J"/>
                         <outlet property="passButton" destination="Qcc-R9-1Ra" id="bbl-6X-hjx"/>
+                        <outlet property="piggiesSpotsLabels" destination="2fV-5U-tME" id="SZ1-TU-aqw"/>
                         <outlet property="piggy1" destination="3HZ-n0-QJv" id="xGx-JQ-AaM"/>
                         <outlet property="piggy2" destination="mHt-DV-VrP" id="fsl-cK-wIq"/>
                         <outlet property="piggy3" destination="vlo-Un-KGM" id="Pwu-eX-YmY"/>
@@ -704,6 +705,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="piggyChooserOutlet" destination="sGW-XU-6yT" id="VLF-00-gbM"/>
                         <outlet property="stepperLabel" destination="bhf-Y6-QvF" id="iCS-4c-XPb"/>
                     </connections>
                 </viewController>
@@ -725,6 +727,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3OS-7I-zEv" id="jZi-sU-1JW">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -810,7 +813,7 @@
                                     <segue destination="IFf-33-B18" kind="show" identifier="otherUserProfiles" id="5zU-1l-qZV"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLv-Rn-bh5" userLabel="textView">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLv-Rn-bh5" userLabel="textView">
                                 <rect key="frame" x="30" y="325" width="313" height="93"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -846,37 +849,13 @@
                                 <rect key="frame" x="38" y="431" width="299" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Availabilty:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcM-dn-bF8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Spots:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcM-dn-bF8">
                                 <rect key="frame" x="121" y="446" width="133" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="piggy-head-1" translatesAutoresizingMaskIntoConstraints="NO" id="ImZ-st-X3p">
-                                <rect key="frame" x="153" y="497" width="30" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="piggy-head-1" translatesAutoresizingMaskIntoConstraints="NO" id="jsC-ta-RRz">
-                                <rect key="frame" x="77" y="497" width="30" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="piggy-head-1" translatesAutoresizingMaskIntoConstraints="NO" id="X0M-Lt-Du5">
-                                <rect key="frame" x="115" y="497" width="30" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="piggy-head-1" translatesAutoresizingMaskIntoConstraints="NO" id="8OP-JI-Pem">
-                                <rect key="frame" x="191" y="497" width="30" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="piggy-head-1" translatesAutoresizingMaskIntoConstraints="NO" id="SyF-D5-Zxv">
-                                <rect key="frame" x="229" y="497" width="30" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="piggy-head-1" translatesAutoresizingMaskIntoConstraints="NO" id="Hdg-pn-OUT">
-                                <rect key="frame" x="267" y="497" width="30" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="XPU-cZ-gAa">
                                 <rect key="frame" x="33" y="441" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -919,12 +898,6 @@
                         <outlet property="destination" destination="DRw-Pl-k1m" id="j5l-sm-K7L"/>
                         <outlet property="editButton" destination="NCb-aZ-wUT" id="dSC-UC-tCB"/>
                         <outlet property="origin" destination="wN1-8J-aj9" id="ZZQ-ug-nc6"/>
-                        <outlet property="piggy1" destination="jsC-ta-RRz" id="Ejq-0j-DPM"/>
-                        <outlet property="piggy2" destination="X0M-Lt-Du5" id="TjA-h2-VTP"/>
-                        <outlet property="piggy3" destination="ImZ-st-X3p" id="RYM-PY-VT1"/>
-                        <outlet property="piggy4" destination="8OP-JI-Pem" id="e5q-4R-ZXO"/>
-                        <outlet property="piggy5" destination="SyF-D5-Zxv" id="vF4-m5-ods"/>
-                        <outlet property="piggy6" destination="Hdg-pn-OUT" id="Nmz-bb-UIv"/>
                         <outlet property="requestButton" destination="HRZ-ad-b6r" id="lfJ-iR-c4C"/>
                         <outlet property="textView" destination="TLv-Rn-bh5" id="nb8-iY-RPw"/>
                         <segue destination="ZG3-7u-X1B" kind="presentation" identifier="requestPass" id="Pq7-s0-vGj"/>
@@ -1179,6 +1152,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DeL-Hr-oHI" id="5F3-wu-wzA">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="KHa-fy-ClU">
@@ -1570,7 +1544,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcp-yM-qeX">
-                                <rect key="frame" x="169" y="193" width="36" height="30"/>
+                                <rect key="frame" x="169" y="189" width="36" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Clear"/>
                                 <connections>
@@ -1578,7 +1552,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXf-vg-jIS">
-                                <rect key="frame" x="169" y="436" width="36" height="30"/>
+                                <rect key="frame" x="169" y="488" width="36" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Clear"/>
                                 <connections>
@@ -1586,7 +1560,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zK4-PC-uag">
-                                <rect key="frame" x="16" y="369" width="343" height="59"/>
+                                <rect key="frame" x="16" y="425" width="343" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Destination"/>
@@ -1594,6 +1568,10 @@
                                     <action selector="searchWithAddressDestina:" destination="OfA-K8-r3y" eventType="touchUpInside" id="ld8-uL-ZS7"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="piggyCar" translatesAutoresizingMaskIntoConstraints="NO" id="cCZ-Ur-hCs">
+                                <rect key="frame" x="67" y="255" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1652,6 +1630,7 @@
         <image name="magnifying-glass" width="30" height="30"/>
         <image name="piggy-empty-1" width="30" height="27"/>
         <image name="piggy-head-1" width="30" height="27"/>
+        <image name="piggyCar" width="871" height="470"/>
         <image name="planner" width="40" height="33"/>
         <image name="rect-grey" width="212" height="52"/>
         <image name="userIcon" width="30" height="32"/>

@@ -23,6 +23,7 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
     var dr_or_pa = 0
     
     @IBOutlet weak var piggy1: UIButton!
+    @IBOutlet weak var piggiesSpotsLabels: UILabel!
     @IBOutlet weak var piggy2: UIButton!
     @IBOutlet weak var piggy3: UIButton!
     @IBOutlet weak var piggy4: UIButton!
@@ -55,6 +56,7 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
             
             driverButton.setBackgroundImage(UIImage.init(named: "Button"), for: .normal)
             passButton.setBackgroundImage(UIImage.init(named: "rect-grey"), for: .normal)
+            piggiesSpotsLabels.text = "How many piggies can you take?"
             
         }else if sender.tag == 1 {
             // PASS
@@ -62,7 +64,7 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
             dr_or_pa = 1
             driverButton.setBackgroundImage(UIImage.init(named: "rect-grey"), for: .normal)
             passButton.setBackgroundImage(UIImage.init(named: "Button"), for: .normal)
-            
+            piggiesSpotsLabels.text = "How many piggies are you bringing?"
         }
         else{
             dr_or_pa = 2
@@ -157,9 +159,6 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         typePickerView.delegate = self
         passengerPickerView.delegate = self
-        
-//        passengersField.inputView = passengerPickerView
-//        typeField.inputView = typePickerView
         
         
         descriptionField.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.5).cgColor
