@@ -219,6 +219,13 @@ class DetailPostViewController: UIViewController {
             // your new view controller should have property that will store passed value
             viewController.detailDict = detailDict
         }
+        if (segue.identifier == "requestDr") {
+            // initialize new view controller and cast it as your view controller
+            let viewController = segue.destination as! OwnRequestsTableViewController
+            
+            // your new view controller should have property that will store passed value
+            viewController.detailDict = detailDict
+        }
     }
     
 

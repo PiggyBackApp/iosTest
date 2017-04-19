@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GW1-MZ-fWJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GW1-MZ-fWJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -260,7 +260,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jmm-yK-M0B" id="uJx-hJ-yFx">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KgU-zY-R2x">
@@ -711,22 +711,20 @@
             </objects>
             <point key="canvasLocation" x="5693.6000000000004" y="14.842578710644679"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Own Requests Table View Controller-->
         <scene sceneID="Yyg-Dz-OjI">
             <objects>
-                <tableViewController id="7Gq-Np-HtK" sceneMemberID="viewController">
+                <tableViewController id="7Gq-Np-HtK" customClass="OwnRequestsTableViewController" customModule="PiggyAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="W0L-mA-4yq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="3OS-7I-zEv">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postsCellSelf" id="3OS-7I-zEv">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3OS-7I-zEv" id="jZi-sU-1JW">
-
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -736,6 +734,8 @@
                             <outlet property="delegate" destination="7Gq-Np-HtK" id="2Pq-Q3-THL"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X2n-8g-cPo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -928,7 +928,7 @@
                         <outlet property="requestButton" destination="HRZ-ad-b6r" id="lfJ-iR-c4C"/>
                         <outlet property="textView" destination="TLv-Rn-bh5" id="nb8-iY-RPw"/>
                         <segue destination="ZG3-7u-X1B" kind="presentation" identifier="requestPass" id="Pq7-s0-vGj"/>
-                        <segue destination="7Gq-Np-HtK" kind="presentation" identifier="requestDr" id="I81-bv-hGS"/>
+                        <segue destination="7Gq-Np-HtK" kind="show" identifier="requestDr" id="I81-bv-hGS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FL7-Yb-Gan" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1063,7 +1063,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rVk-PI-TAY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6924" y="812.74362818590714"/>
+            <point key="canvasLocation" x="7017" y="813"/>
         </scene>
         <!--Other User Profile View Controller-->
         <scene sceneID="TYi-hk-xZf">
@@ -1178,9 +1178,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DeL-Hr-oHI" id="5F3-wu-wzA">
-
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
-
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="KHa-fy-ClU">
@@ -1318,19 +1316,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select rating:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fnm-09-NWy">
-                                <rect key="frame" x="138" y="86" width="102" height="21"/>
+                                <rect key="frame" x="138.5" y="85.5" width="101.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How was your trip?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Trw-UW-4L5">
-                                <rect key="frame" x="115" y="171" width="146" height="21"/>
+                                <rect key="frame" x="115.5" y="170" width="145.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C1p-S9-iQJ">
-                                <rect key="frame" x="113" y="124" width="151" height="30"/>
+                                <rect key="frame" x="113" y="123" width="151" height="30"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeM-lP-qgh">
                                         <rect key="frame" x="0.0" y="0.0" width="31" height="30"/>
@@ -1376,7 +1374,7 @@
                                 </constraints>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6NM-Sp-Tat">
-                                <rect key="frame" x="16" y="200" width="343" height="138"/>
+                                <rect key="frame" x="16" y="198.5" width="343" height="139.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1390,7 +1388,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write a review!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gec-c2-Gd1">
-                                <rect key="frame" x="131" y="25" width="113" height="21"/>
+                                <rect key="frame" x="131" y="25" width="113" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1501,7 +1499,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0rm-Hh-Uw4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Rides" image="camp-bag" id="rpf-Pa-3U5"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Jf-vS-Vtw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4Jf-vS-Vtw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1520,7 +1518,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8qr-Iu-hpo" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Requests" image="chat-user" id="STG-XE-jch"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4QF-oX-hNd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4QF-oX-hNd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1624,7 +1622,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="nxp-vB-dG5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IQb-Tr-3GI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="IQb-Tr-3GI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -16,6 +16,7 @@ class ChatTableViewController: UITableViewController {
     let keychain = LoginViewController(nibName: nil, bundle: nil).keychain
 
     override func viewDidLoad() {
+        self.title = "Requests"
         getRequests()
         super.viewDidLoad()
         tableView.rowHeight = 70
