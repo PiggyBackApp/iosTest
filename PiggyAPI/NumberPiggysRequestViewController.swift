@@ -14,6 +14,7 @@ class NumberPiggysRequestViewController: UIViewController {
 
     let keychain = LoginViewController(nibName: nil, bundle: nil).keychain
     var detailDict :[String:AnyObject]!
+    var num_passengers = 1
     
     @IBOutlet weak var stepperLabel: UILabel!
     
@@ -21,26 +22,26 @@ class NumberPiggysRequestViewController: UIViewController {
         
         if(sender.value == 1) {
             stepperLabel.text = "🐷"
+            num_passengers = 1
         }
         
         else if(sender.value == 2){
             stepperLabel.text = "🐷🐷"
-
+            num_passengers = 2
         }
         
         else if(sender.value == 3){
             stepperLabel.text = "🐷🐷🐷"
-
+            num_passengers = 3
         }
         
         else if(sender.value == 4){
             stepperLabel.text = "🐷🐷🐷🐷"
-
+            num_passengers = 4
         }
-        
         else {
             stepperLabel.text = "🐷🐷🐷🐷🐷"
-
+            num_passengers = 5
         }
     }
     
@@ -57,6 +58,8 @@ class NumberPiggysRequestViewController: UIViewController {
         
         let newRequest = ["driver": driver,
                           "passenger": pass,
+                          "passengers" : num_passengers,
+                          "requester" : pass,
                           "post": detailDict["id"]!] as [String : Any]
         
         Alamofire.request(requestEP, method: .post, parameters: newRequest, encoding: JSONEncoding.default, headers: nil)

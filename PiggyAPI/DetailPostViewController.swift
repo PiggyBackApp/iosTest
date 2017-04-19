@@ -118,65 +118,16 @@ class DetailPostViewController: UIViewController {
         
     }
     @IBAction func makeRequest(_ sender: Any) {
-        let requestEP = "http://localhost:8000/api/requests/?format=json"
-        
-        
-        var driver  : Int
-        var pass    : Int
         
         if  "DR" == detailDict["postType"] as! String? {
-            driver = detailDict["creator"] as! Int
-            pass = Int(keychain.get("userID")!)!
-            performSegue(withIdentifier: "requestPass", sender: self)
-
             
-//            pass = 22
+            performSegue(withIdentifier: "requestPass", sender: self)
         }
         else{
-            driver = Int(keychain.get("userID")!)!
-//            driver = 22
-            pass = detailDict["creator"] as! Int
+            
             performSegue(withIdentifier: "requestDr", sender: self)
         }
         
-        
-        
-        
-        let newRequest = ["driver": driver,
-                          "passenger": pass,
-                          "post": detailDict["id"]!] as [String : Any]
-        
-        Alamofire.request(requestEP, method: .post, parameters: newRequest, encoding: JSONEncoding.default, headers: nil)
-            .responseJSON{
-                response in
-//                debugPrint(response)
-//                print(response)
-                var httpCode = 0
-                var authSucc = false
-                if let status = response.response?.statusCode {
-                    httpCode = status
-                    switch(status){
-                    case 201:
-                        print("example success")
-                        authSucc = true
-                    case 200:
-                        authSucc = true
-                        print("example success 200")
-                    default:
-                        print("error with response status: \(status)")
-                    }
-                }
-                //to get JSON return value
-                if(authSucc){
-                    let alert = UIAlertController(title: "Request Sent!", message: "", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }else{
-                    let alert = UIAlertController(title: "Request Failed!", message: "Error code: \(httpCode)", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }
-        }
         
     }
     
