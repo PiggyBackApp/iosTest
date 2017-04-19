@@ -29,6 +29,7 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var piggy5: UIButton!
     @IBOutlet weak var piggy6: UIButton!
     
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     
     
@@ -135,6 +136,8 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
+        
+        
         searchResultController = SearchResultsController()
         gmsFetcher = GMSAutocompleteFetcher()
         gmsFetcher.delegate = self
@@ -142,6 +145,9 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let date = Date()
+        datePicker.minimumDate = date
         
         let typePickerView = UIPickerView()
         let passengerPickerView = UIPickerView()
@@ -209,6 +215,7 @@ class CreatePostViewController: UIViewController, UIPickerViewDataSource, UIPick
         let myFormatter = DateFormatter()
         myFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.000000'Z'" //"YYYY-MM-DDThh:mm[:ss[.uuuuuu]][+HH:MM|-HH:MM|Z]"
         dateAndTime = myFormatter.string(from: sender.date)
+        
         
         print(dateAndTime)
     }
