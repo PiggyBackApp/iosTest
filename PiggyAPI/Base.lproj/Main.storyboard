@@ -705,6 +705,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="piggyChooserOutlet" destination="sGW-XU-6yT" id="VLF-00-gbM"/>
                         <outlet property="stepperLabel" destination="bhf-Y6-QvF" id="iCS-4c-XPb"/>
                     </connections>
                 </viewController>

@@ -18,6 +18,9 @@ class NumberPiggysRequestViewController: UIViewController {
     
     @IBOutlet weak var stepperLabel: UILabel!
     
+    @IBOutlet weak var piggyChooserOutlet: UIStepper!
+    
+    
     @IBAction func piggyChooser(_ sender: UIStepper) {
         
         if(sender.value == 1) {
@@ -39,7 +42,7 @@ class NumberPiggysRequestViewController: UIViewController {
             stepperLabel.text = "🐷🐷🐷🐷"
             num_passengers = 4
         }
-        else {
+        else if(sender.value == 4){
             stepperLabel.text = "🐷🐷🐷🐷🐷"
             num_passengers = 5
         }
@@ -101,7 +104,9 @@ class NumberPiggysRequestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let openSeats = (detailDict["passengerCapacity"] as! Int) - (detailDict["seats_taken"] as! Int)
+        piggyChooserOutlet.maximumValue = Double(openSeats)
         // Do any additional setup after loading the view.
     }
 
